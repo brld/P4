@@ -12,34 +12,34 @@ class BooksTableSeeder extends Seeder
     public function run()
     {
 
-    DB::table('books')->insert([
-        'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-        'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-        'title' => 'Pinnacles Information'
-    ]);
+        DB::table('books')->insert([
+            'created_at' => Carbon\Carbon::now()->toDateTimeString(),
+            'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
+            'title' => 'Pinnacles Information',
+        ]);
 
-    DB::table('books')->insert([
-        'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-        'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-        'title' => 'Santa Teresa Information'
-    ]);
+        DB::table('books')->insert([
+            'created_at' => Carbon\Carbon::now()->toDateTimeString(),
+            'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
+            'title' => 'Santa Teresa Information',
+        ]);
 
-    DB::table('books')->insert([
-        'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-        'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-        'title' => 'California State Parks Map'
-    ]);
+        DB::table('books')->insert([
+            'created_at' => Carbon\Carbon::now()->toDateTimeString(),
+            'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
+            'title' => 'California State Parks Map',
+        ]);
 
-    DB::table('books')->insert([
-        'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-        'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-        'title' => 'Yosemite Information'
-    ]);
+        DB::table('books')->insert([
+            'created_at' => Carbon\Carbon::now()->toDateTimeString(),
+            'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
+            'title' => 'Yosemite Information',
+        ]);
 
-    DB::table('books')->insert([
-        'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-        'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-        'title' => 'South Skyline Region'
-    ]);
+        DB::table('books')->insert([
+            'created_at' => Carbon\Carbon::now()->toDateTimeString(),
+            'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
+            'title' => 'South Skyline Region',
+        ]);
     }
 }
