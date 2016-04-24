@@ -9,16 +9,34 @@ class EquipmentController extends Controller
     return view('equipment')->with('equipment',$equipment);
   }
   public function getAdd() {
-    return 'Hello world!';
+    return view('create-equipment');
   }
-  public function postAdd() {
-    return 'Hello world!';
+  public function postAdd(Request $request) {
+    $this->validate($request,[
+      'item' => 'required|min:3|max:30',
+    ]);
+
+    $data = $request->only('item');
+    \P4\Equipment::create($data);
+
+    \Session::flash('message','Your item was added');
+
+    return redirect('/equipment');
   }
-  public function getEdit() {
-    return 'Hello world!';
+  public function getEdit($id = 1) {
+    $equipment = \P4\Equipment::find($id);
+    return view('edit-equipment')->with('equipment',$equipment);
   }
-  public function postEdit() {
-    return 'Hello world!';
+  public function postEdit(Request $request) {
+    $equipment = \P4\Equipment::find($request->id);
+
+    $equipment->item = $request->item;
+
+    $equipment->save();
+
+    \Session::flash('message','Your item was saved');
+
+    return redirect('/equipment');
   }
   public function getBorrow() {
     return 'Hello world!';

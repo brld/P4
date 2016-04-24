@@ -29,8 +29,10 @@ Route::post('/equipment/add', 'EquipmentController@postAdd');
 //============== [EDIT ITEMS] ==============\\
 //**************     BOOKS     **************\\
 Route::get('/books/edit/{id?}', 'BookController@getedit');
+Route::post('/books/edit', 'BookController@postEdit');
 //**************   EQUIPMENT   **************\\
-Route::get('/equipment/edit{id?}', 'EquipmentController@getEdit');
+Route::get('/equipment/edit/{id?}', 'EquipmentController@getEdit');
+Route::post('/equipment/edit', 'EquipmentController@postEdit');
 //============== [EDIT ITEMS] ==============\\
 
 

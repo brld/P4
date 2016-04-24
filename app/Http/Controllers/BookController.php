@@ -13,7 +13,7 @@ class BookController extends Controller
   }
   public function postAdd(Request $request) {
     $this->validate($request,[
-      'title' => 'required|min:3',
+      'title' => 'required|min:3|max:30',
     ]);
 
     $data = $request->only('title');
@@ -23,7 +23,7 @@ class BookController extends Controller
 
     return redirect('/books');
   }
-  public function getEdit($id) {
+  public function getEdit($id = 1) {
     $book = \P4\Book::find($id);
     return view('edit-books')->with('book',$book);
   }
@@ -36,7 +36,7 @@ class BookController extends Controller
 
     \Session::flash('message','Your book was saved');
 
-    return redirect('/books/edit');
+    return redirect('/books');
 
   }
   public function getBorrow() {

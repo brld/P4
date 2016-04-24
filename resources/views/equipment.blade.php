@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('title')
-  All books
+  All equipment
 @stop
 
 @section('content')
@@ -10,8 +10,9 @@
 
   <div class="equipment">
     @foreach($equipment as $indiEquipment)
-      <h2>{{ $indiEquipment->item }}</h2>
-      <a href="/equipment/edit/{{$indiEquipment->id}}">Edit</a>
+      <h2 class='item'>{{ $indiEquipment->item }}</h2>
+      <a class='itema'href="/equipment/edit/{{$indiEquipment->id}}">Edit</a>
+      <br><br>
     @endforeach
   </div>
 
