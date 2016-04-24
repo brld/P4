@@ -1,13 +1,25 @@
 <?php
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
+
+for($i = 0; $i <= 100; $i++) {
+    Route::get("/practice/ex".$i, "PracticeController@getEx".$i);
+}
+
+//============== [SHOW ITEMS] ==============\\
+//**************    BOOKS    **************\\
+Route::get('/books', 'BookController@getIndex');
+//**************  EQUIPMENT  **************\\
+Route::get('/equipment', 'EquipmentController@getIndex');
+//============== [SHOW ITEMS] ==============\\
+
 
 //============== [ADD ITEMS] ==============\\
 //**************    BOOKS    **************\\
-Route::get('/books/add', 'BooksController@getAdd');
-Route::post('/books/add', 'BooksController@postAdd');
+Route::get('/books/add', 'BookController@getAdd');
+Route::post('/books/add', 'BookController@postAdd');
 //**************  EQUIPMENT  **************\\
 Route::get('/equipment/add', 'EquipmentController@getAdd');
 Route::post('/equipment/add', 'EquipmentController@postAdd');
@@ -16,18 +28,16 @@ Route::post('/equipment/add', 'EquipmentController@postAdd');
 
 //============== [EDIT ITEMS] ==============\\
 //**************     BOOKS     **************\\
-Route::get('/books/edit', 'BooksController@getedit');
-Route::post('/books/edit', 'BooksCOntroller@postEdit');
+Route::get('/books/edit/{id?}', 'BookController@getedit');
 //**************   EQUIPMENT   **************\\
-Route::get('/equipment/edit', 'EquipmentController@getEdit');
-Route::post('/equipment/edit', 'EquipmentController@postEdit');
+Route::get('/equipment/edit{id?}', 'EquipmentController@getEdit');
 //============== [EDIT ITEMS] ==============\\
 
 
 //============== [BORROW ITEMS] ==============\\
 //**************     BOOKS     **************\\
-Route::get('/books/borrow', 'BooksController@getBorrow');
-Route::post('/books/borrow', 'BooksController@postBorrow');
+Route::get('/books/borrow', 'BookController@getBorrow');
+Route::post('/books/borrow', 'BookController@postBorrow');
 //**************   EQUIPMENT   **************\\
 Route::get('/equipment/borrow', 'EquipmentController@getBorrow');
 Route::post('/equipment/borrow', 'EquipmentController@postBorrow');
@@ -36,11 +46,11 @@ Route::post('/equipment/borrow', 'EquipmentController@postBorrow');
 
 //============== [REMOVE ITEMS] ==============\\
 //**************     BOOKS     **************\\
-Route::get('/books/remove', 'BooksController@getBorrow');
-Route::post('/books/remove', 'BooksController@postBorrow');
+Route::get('/books/remove', 'BookController@getRemove');
+Route::post('/books/remove', 'BookController@postRemove');
 //**************   EQUIPMENT   **************\\
-Route::get('equipment/remove', 'EquipmentController@getEdit');
-Route::post('equipment/remove', 'EquipmentController@postEdit');
+Route::get('equipment/remove', 'EquipmentController@getRemove');
+Route::post('equipment/remove', 'EquipmentController@postRemove');
 //============== [REMOVE ITEMS] ==============\\
 
 Route::get('/debug', function() {
