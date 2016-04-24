@@ -28,10 +28,6 @@
         <div class='flash_message'>{{ Session::get('message') }}</div>
     @endif
 
-    <header>
-
-    </header>
-
     <div id='menu'>
       <ul>
         <li>
