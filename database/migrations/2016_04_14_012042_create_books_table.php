@@ -25,7 +25,7 @@ class CreateBooksTable extends Migration
 
         # The rest of the fields...
         $table->string('title');
-        $table->string('owner');
+        #$table->string('owner');
         $table->integer('page_count');
 
         # FYI: We're skipping the 'tags' field for now; more on that later.

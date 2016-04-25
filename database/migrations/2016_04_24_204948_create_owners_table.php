@@ -22,6 +22,6 @@ class CreateOwnersTable extends Migration
 
     public function down()
     {
-        Schema::drop('authors');
+        Schema::drop('owners');
     }
 }
