@@ -28,5 +28,18 @@ class OwnersTableSeeder extends Seeder
           'last_name' => 'Morgan',
         ]);
 
+        DB::table('owners')->insert([
+          'created_at' => Carbon\Carbon::now()->toDateTimeString(),
+          'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
+          'first_name' => 'Brandon',
+          'last_name' => 'Darby',
+        ]);
+
+        DB::table('owners')->insert([
+          'created_at' => Carbon\Carbon::now()->toDateTimeString(),
+          'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
+          'first_name' => 'Kyle',
+          'last_name' => 'France',
+        ]);
     }
 }

@@ -24,7 +24,6 @@ class CreateEquipmentTable extends Migration
 
         # The rest of the fields...
         $table->string('item');
-        $table->string('owner');
 
         # FYI: We're skipping the 'tags' field for now; more on that later.
 

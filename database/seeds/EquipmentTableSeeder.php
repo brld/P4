@@ -11,54 +11,40 @@ class EquipmentTableSeeder extends Seeder
      */
     public function run()
     {
-        $owner_id = \P4\Owner::where('last_name','=','Vass')->pluck('id')->first();
         DB::table('equipment')->insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
             'item' => 'Flagpole',
-            'owner_id' => $owner_id,
         ]);
-        $owner_id = \P4\Owner::where('last_name','=','Ramsay')->pluck('id')->first();
         DB::table('equipment')->insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
             'item' => 'Troop Scrapbook',
-            'owner_id' => $owner_id,
         ]);
-        $owner_id = \P4\Owner::where('last_name','=','Ramsay')->pluck('id')->first();
         DB::table('equipment')->insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
             'item' => 'American Flag',
-            'owner_id' => $owner_id,
         ]);
-        $owner_id = \P4\Owner::where('last_name','=','Ramsay')->pluck('id')->first();
         DB::table('equipment')->insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
             'item' => 'Ropes',
-            'owner_id' => $owner_id,
         ]);
-        $owner_id = \P4\Owner::where('last_name','=','Morgan')->pluck('id')->first();
         DB::table('equipment')->insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
             'item' => 'PVC Pipes',
-            'owner_id' => $owner_id,
         ]);
-        $owner_id = \P4\Owner::where('last_name','=','Vass')->pluck('id')->first();
         DB::table('equipment')->insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
             'item' => 'Wooden Staffs',
-            'owner_id' => $owner_id,
         ]);
-        $owner_id = \P4\Owner::where('last_name','=','Aminzadeh')->pluck('id')->first();
         DB::table('equipment')->insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
             'item' => 'Lashing Handbook',
-            'owner_id' => $owner_id,
         ]);
     }
 }

@@ -11,7 +11,7 @@ class BooksTableSeeder extends Seeder
      */
     public function run()
     {
-        $owner_id = \P4\Owner::where('last_name','=','Vass')->pluck('id')->first();
+        $owner_id = \P4\Owner::where('last_name','=','Darby')->pluck('id')->first();
         DB::table('books')->insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
@@ -27,7 +27,7 @@ class BooksTableSeeder extends Seeder
             'owner_id' => $owner_id,
         ]);
 
-        $owner_id = \P4\Owner::where('last_name','=','Vass')->pluck('id')->first();
+        $owner_id = \P4\Owner::where('last_name','=','Morgan')->pluck('id')->first();
         DB::table('books')->insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
@@ -35,7 +35,7 @@ class BooksTableSeeder extends Seeder
             'owner_id' => $owner_id,
         ]);
 
-        $owner_id = \P4\Owner::where('last_name','=','Vass')->pluck('id')->first();
+        $owner_id = \P4\Owner::where('last_name','=','France')->pluck('id')->first();
         DB::table('books')->insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
@@ -43,7 +43,7 @@ class BooksTableSeeder extends Seeder
             'owner_id' => $owner_id,
         ]);
 
-        $owner_id = \P4\Owner::where('last_name','=','Vass')->pluck('id')->first();
+        $owner_id = \P4\Owner::where('last_name','=','Ramsay')->pluck('id')->first();
         DB::table('books')->insert([
             'created_at' => Carbon\Carbon::now()->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
