@@ -29,8 +29,8 @@ class CreateBookTagTable extends Migration
       });
     }
 
-public function down()
-{
-    Schema::drop('book_tag');
-}
+    public function down()
+    {
+        Schema::drop('book_tag');
+    }
 }

@@ -130,7 +130,9 @@ footer {
   padding: 0px;
   margin: 0 auto;
   list-style: none;
-  width: 192px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 
 #menu ul li {

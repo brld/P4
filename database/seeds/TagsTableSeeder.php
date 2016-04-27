@@ -11,7 +11,7 @@ class TagsTableSeeder extends Seeder
      */
      public function run()
      {
-       $data = ['camping','flags','lashing','knots','cooking','photography','history'];
+       $data = ['outdoors','maps','high-adventure','camping','classic'];
 
        foreach($data as $tagName) {
            $tag = new \P4\Tag();

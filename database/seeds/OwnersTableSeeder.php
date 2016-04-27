@@ -11,7 +11,7 @@ class OwnersTableSeeder extends Seeder
           'created_at' => Carbon\Carbon::now()->toDateTimeString(),
           'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
           'first_name' => 'Taylor',
-          'last_name' => 'Vaas',
+          'last_name' => 'Vass',
         ]);
 
         DB::table('owners')->insert([

@@ -8,7 +8,11 @@ class Book extends Model
 {
     protected $fillable = ['title'];
 
-    public function author() {
-      return $this->belongsTo('P4\Author');
+    public function owner() {
+      return $this->belongsTo('\P4\Owner');
+    }
+
+    public function tags() {
+      return $this->belongsToMany('\P4\Tag')->withTimeStamps();
     }
 }

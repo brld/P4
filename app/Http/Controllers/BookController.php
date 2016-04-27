@@ -25,6 +25,9 @@ class BookController extends Controller
   }
   public function getEdit($id = 1) {
     $book = \P4\Book::find($id);
+
+    $owners = \P4\Owner::orderBy('last_name','ASC')->get();
+
     return view('edit-books')->with('book',$book);
   }
   public function postEdit(Request $request) {

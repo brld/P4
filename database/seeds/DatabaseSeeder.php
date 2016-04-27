@@ -15,5 +15,6 @@ class DatabaseSeeder extends Seeder
         $this->call(OwnersTableSeeder::class);
         $this->call(BooksTableSeeder::class);
         $this->call(EquipmentTableSeeder::class);
+        $this->call(BookTagTableSeeder::class);
     }
 }
