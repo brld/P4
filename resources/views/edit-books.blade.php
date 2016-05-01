@@ -25,6 +25,36 @@
            <div class='error'>{{ $errors->first('title') }}</div>
         </div>
 
+        <div class='form-group'>
+          <label for='owner_id'>Owner:</label>
+          <select name='owner_id' id='owner_id'>
+            @foreach($owners_for_dropdown as $owner_id => $owner_name)
+
+              <?php $selected = ($book->owner_id == $owner_id) ? 'SELECTED' : '' ?>
+              <option value='{{ $owner_id }}' {{$selected}}>{{ $owner_name }}</option>
+            @endforeach
+          </select>
+          <div class='error'>{{ $errors->first('owner') }}</div>
+        </div>
+
+        <div class='form-group'>
+          <fieldset>
+            <legend>Tags:</legend>
+            @foreach ($tags_for_checkboxes as $tag_id => $tag_name)
+            <label><br>
+              <input
+                type="checkbox"
+                value='{{$tag_id}}'
+                name="tags[]"
+                {{ (in_array($tag_id,$tags_for_this_book))? 'CHECKED' : '' }}
+              >
+              {{$tag_name}}
+            </label>
+            @endforeach
+            <div class='error'>{{ $errors->first('owner') }}</div>
+          </fieldset>
+        </div>
+
         <div class='form-instructions'>
             All fields are required
         </div>

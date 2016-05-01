@@ -54,6 +54,20 @@
       </div>
     </header>
 
+    <div id="login">
+      <?php
+        $user = Auth::user();
+        $loggedInLoginLabel = ($user) ? 'Logout' : 'Login';
+        $loggedInLoginRoute = ($user) ? '/logout' : '/login';
+      ?>
+      <?php
+        $loggedInRegister = ($user) ? '' : 'Register';
+        $loggedInRegisterRoute = ($user) ? '/' : '/register';
+      ?>
+      <a href='{{ $loggedInLoginRoute }}'>{{ $loggedInLoginLabel }}</a>
+      <a href='{{ $loggedInRegisterRoute }}'>{{ $loggedInRegister }}</a>
+    </div>
+
     <section>
         {{-- Main page content will be yielded here --}}
         @yield('content')

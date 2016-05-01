@@ -23,6 +23,11 @@ class AuthController extends Controller
 
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
 
+    # Where the user will go if their login fails
+    protected $loginPath = '/login';
+
+    protected $redirectAfterLogout = '/';
+
     /**
      * Where to redirect users after login / registration.
      *
@@ -49,7 +54,8 @@ class AuthController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|max:255',
+            'first_name' => 'required|max:255',
+            'last_name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
         ]);
@@ -64,9 +70,24 @@ class AuthController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
+            'first_name' => $data['first_name'],
+            'last_name' => $data['last_name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
     }
+
+      /**
+       * Log the user out of the application.
+       *
+       * @return \Illuminate\Http\Response
+       */
+      public function logout()
+      {
+          \Auth::guard($this->getGuard())->logout();
+
+          \Session::flash('message','You have been logged out.');
+
+          return redirect(property_exists($this, 'redirectAfterLogout') ? $this->redirectAfterLogout : '/');
+      }
 }

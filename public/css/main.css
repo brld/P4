@@ -200,6 +200,7 @@ footer {
 	padding:8px 11px;
 	text-decoration:none;
 	text-shadow:0px 1px 0px #1d4217;
+  margin-bottom: 10%;
 }
 .btn-primary:hover {
 	background-color:#40bd62;
@@ -252,4 +253,22 @@ footer {
   margin-top: .6%;
   width: 5%;
   float: left;
+}
+
+.truncate {
+  clear: both;
+}
+
+fieldset {
+  border: 0px !important;
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+  margin-top: 1% !important;
+}
+
+#login {
+  text-align: right;
+  margin-right: 3%;
+  margin-top: 1%;
+  margin-bottom: -.5% !important;
 }
