@@ -55,17 +55,12 @@
     </header>
 
     <div id="login">
-      <?php
-        $user = Auth::user();
-        $loggedInLoginLabel = ($user) ? 'Logout' : 'Login';
-        $loggedInLoginRoute = ($user) ? '/logout' : '/login';
-      ?>
-      <?php
-        $loggedInRegister = ($user) ? '' : 'Register';
-        $loggedInRegisterRoute = ($user) ? '/' : '/register';
-      ?>
-      <a href='{{ $loggedInLoginRoute }}'>{{ $loggedInLoginLabel }}</a>
-      <a href='{{ $loggedInRegisterRoute }}'>{{ $loggedInRegister }}</a>
+      @if(Auth::check())
+        <a href="/logout">Logout</a>
+      @else
+        <a href="/login">Login</a>
+        <a href="/register">Register</a>
+      @endif
     </div>
 
     <section>

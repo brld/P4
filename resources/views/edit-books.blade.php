@@ -27,7 +27,7 @@
 
         <div class='form-group'>
           <label for='owner_id'>Owner:</label>
-          <select name='owner_id' id='owner_id'>
+          <select name='owner_id' class='owner_id'>
             @foreach($owners_for_dropdown as $owner_id => $owner_name)
 
               <?php $selected = ($book->owner_id == $owner_id) ? 'SELECTED' : '' ?>

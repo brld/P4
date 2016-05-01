@@ -9,7 +9,13 @@ class BookController extends Controller
     return view('books')->with('books',$books);
   }
   public function getAdd() {
-    return view('create-books');
+
+    $owners_for_dropdown = \P4\Owner::ownersForDropdown();
+
+    $tags_for_checkboxes = \P4\Tag::getTagsForCheckboxes();
+    return view('create-books')
+      ->with('owners_for_dropdown', $owners_for_dropdown)
+      ->with('tags_for_checkboxes', $tags_for_checkboxes);
   }
   public function postAdd(Request $request) {
     $this->validate($request,[
