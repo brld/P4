@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Book extends Model
 {
-    protected $guarded = array();
+    protected $fillable = ['title', 'owner', 'name', 'owner_id'];
 
     public function owner() {
       return $this->belongsTo('\P4\Owner');

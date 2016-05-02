@@ -10,6 +10,10 @@ class Owner extends Model
       return $this->hasMany('\P4\Book');
     }
 
+    public function equipment() {
+      return $this->hasMany('\P4\Equipment');
+    }
+
     public static function ownersForDropdown() {
 
 

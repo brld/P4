@@ -22,7 +22,7 @@ class BookController extends Controller
       'title' => 'required|min:3|max:30',
     ]);
 
-    $data = $request->only('title');
+    $data = $request->all();
     \P4\Book::create($data);
 
     \Session::flash('message','Your book was added');

@@ -21,6 +21,7 @@
 
     @if(Session::get('message') != null)
         <div class='flash_message'>{{ Session::get('message') }}</div>
+        <br>
     @endif
 
     <header>
