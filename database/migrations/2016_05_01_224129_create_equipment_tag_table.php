@@ -24,7 +24,7 @@ class CreateEquipmentTagTable extends Migration
             $table->integer('tag_id')->unsigned();
 
             # Make foreign keys
-            $table->foreign('equipment_id')->references('id')->on('equipments');
+            $table->foreign('equipment_id')->references('id')->on('equipment');
             $table->foreign('tag_id')->references('id')->on('tags');
         });
     }

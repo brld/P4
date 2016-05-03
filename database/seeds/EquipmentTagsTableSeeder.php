@@ -10,13 +10,13 @@ class EquipmentTagsTableSeeder extends Seeder
      * @return void
      */
      public function run()
-    {
+     {
         $data = ['lashing','advancement','camping','cooking','flags','snow','historical'];
 
         foreach($data as $tagName) {
-            $tag = new \App\ETag();
+            $tag = new \P4\Etag();
             $tag->name = $tagName;
             $tag->save();
         }
-    }
+     }
 }
