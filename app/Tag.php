@@ -33,6 +33,6 @@ class Tag extends Model
         $equipment_tags_for_checkboxes[$tag['id']] = $tag['name'];
       }
 
-      return $tags_for_checkboxes;
+      return $equipment_tags_for_checkboxes;
     }
 }

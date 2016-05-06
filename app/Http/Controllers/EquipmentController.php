@@ -16,7 +16,7 @@ class EquipmentController extends Controller
   public function getAdd() {
     $owners_for_dropdown = \P4\Owner::ownersForDropdown();
 
-    $equipment_tags_for_checkboxes = \P4\Tag::getTagsForCheckboxes();
+    $equipment_tags_for_checkboxes = \P4\Tag::getEquipmentTagsForCheckboxes();
     return view('create-equipment')
       ->with('owners_for_dropdown', $owners_for_dropdown)
       ->with('equipment_tags_for_checkboxes', $equipment_tags_for_checkboxes);
