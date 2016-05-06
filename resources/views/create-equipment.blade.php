@@ -30,7 +30,7 @@
                 <option value='{{ $owner_id }}'>{{ $owner_name }}</option>
               @endforeach
             </select>
-            <div class='error'>{{ $errors->first('owner') }}</div>
+            <div class='error'>{{ $errors->first('owner_id') }}</div>
           </div>
 
           <div class='form-group'>

@@ -33,8 +33,13 @@ class BookController extends Controller
       'owner_id' => 'not_in:0'
     ],$messages);
 
-    $data = $request->all();
-    \P4\Book::create($data);
+    $data = $request->only(['title','owner_id']);
+
+    $book = \P4\Book::create($data);
+
+    $tags = ($request->tags) ?: [];
+    $book->tags()->sync($tags);
+    $book->save();
 
     \Session::flash('message','Your book was added');
 

@@ -26,8 +26,22 @@ class EquipmentController extends Controller
       'item' => 'required|min:3|max:30',
     ]);
 
-    $data = $request->only('item');
-    \P4\Equipment::create($data);
+    $messages = [
+      'not_in' => 'You have to choose an owner.',
+    ];
+
+    $this->validate($request,[
+      'item' => 'required|min:3|max:30',
+      'owner_id' => 'not_in:0'
+    ],$messages);
+
+    $data = $request->only(['item','owner_id']);
+
+    $item = \P4\Equipment::create($data);
+
+    $tags = ($request->tags) ?: [];
+    $item->tags()->sync($tags);
+    $item->save();
 
     \Session::flash('message','Your item was added');
 
@@ -56,6 +70,17 @@ class EquipmentController extends Controller
     $equipment = \P4\Equipment::find($request->id);
 
     $equipment->item = $request->item;
+
+    $equipment->owner_id = $request->owner_id;
+
+    if ($request->tags) {
+      $tags = $request->tags;
+    }
+    else {
+      $tags = [];
+    }
+    $equipment->tags()->sync($tags);
+
 
     $equipment->save();
 
