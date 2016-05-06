@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Owner extends Model
 {
+    protected $fillable = ['owner_id'];
+
     public function books() {
       return $this->hasMany('\P4\Book');
     }

@@ -12,6 +12,10 @@ class Tag extends Model
       return $this->belongsToMany(\P4\Book)->withTimeStamps();
     }
 
+    public function equipment() {
+      return $this->belongsToMany(\P4\Equipment)->withTimeStamps();
+    }
+
     public static function getTagsForCheckboxes() {
       $tags = \P4\Tag::where('apply_to','=','books')->get();
 

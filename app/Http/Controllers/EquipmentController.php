@@ -35,7 +35,22 @@ class EquipmentController extends Controller
   }
   public function getEdit($id = 1) {
     $equipment = \P4\Equipment::find($id);
-    return view('edit-equipment')->with('equipment',$equipment);
+
+    $owners_for_dropdown = \P4\Owner::ownersForDropdown();
+
+    $equipment_tags_for_checkboxes = \P4\Tag::getEquipmentTagsForCheckboxes();
+
+    $tags_for_this_item = [];
+    foreach ($equipment->tags as $tag) {
+      $tags_for_this_item[] = $tag->id;
+    }
+
+    return view('edit-equipment')
+      ->with('equipment',$equipment)
+      ->with('owners_for_dropdown',$owners_for_dropdown)
+      ->with('equipment_tags_for_checkboxes',$equipment_tags_for_checkboxes)
+      ->with('tags_for_this_item',$tags_for_this_item);
+
   }
   public function postEdit(Request $request) {
     $equipment = \P4\Equipment::find($request->id);

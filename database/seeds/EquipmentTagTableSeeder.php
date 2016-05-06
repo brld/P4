@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class equipmentTagTableSeeder extends Seeder
+class EquipmentTagTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.

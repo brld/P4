@@ -10,6 +10,7 @@ class CreateEquipmentTable extends Migration
      *
      * @return void
      */
+     
     public function up()
     {
         Schema::create('equipment', function (Blueprint $table) {
