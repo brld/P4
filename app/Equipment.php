@@ -11,4 +11,8 @@ class Equipment extends Model
     public function owner() {
       return $this->belongsTo('\P4\Owner');
     }
+
+    public function tags() {
+      return $this->belongsToMany('\P4\Tag')->withTimeStamps();
+    }
 }

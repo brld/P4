@@ -6,6 +6,11 @@ class BookController extends Controller
 {
   public function getIndex() {
     $books = \P4\Book::orderBy('id','title')->get();
+
+    if (is_null($books)) {
+      \Session::flash('message','Book not found');
+      return redirect('/');
+    }
     return view('books')->with('books',$books);
   }
   public function getAdd() {
@@ -18,9 +23,15 @@ class BookController extends Controller
       ->with('tags_for_checkboxes', $tags_for_checkboxes);
   }
   public function postAdd(Request $request) {
+
+    $messages = [
+      'not_in' => 'You have to choose an owner.',
+    ];
+
     $this->validate($request,[
       'title' => 'required|min:3|max:30',
-    ]);
+      'owner_id' => 'not_in:0'
+    ],$messages);
 
     $data = $request->all();
     \P4\Book::create($data);
@@ -81,4 +92,36 @@ class BookController extends Controller
   public function postRemove() {
     return 'Hello world!';
   }
+
+  public function getConfirmDelete($id) {
+
+    $book = \P4\Book::find($id);
+
+    return view('delete')->with('book', $book);
+  }
+
+  public function getDoDelete($id) {
+
+      # Get the book to be deleted
+      $book = \P4\Book::find($id);
+
+      if(is_null($book)) {
+          \Session::flash('message','Book not found.');
+          return redirect('\books');
+      }
+
+      # First remove any tags associated with this book
+      if($book->tags()) {
+          $book->tags()->detach();
+      }
+
+      # Then delete the book
+      $book->delete();
+
+      # Done
+      \Session::flash('message',$book->title.' was deleted.');
+      return redirect('/books');
+
+  }
+
 }

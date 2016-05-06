@@ -11,12 +11,21 @@ class TagsTableSeeder extends Seeder
      */
      public function run()
      {
-       $data = ['outdoors','maps','high-adventure','camping','classic'];
+       $bookData = ['outdoors','maps','high-adventure','camping','classic'];
+       $equipmentData = ['lashing','advancement','cooking','outdoors','camping','flags'];
 
-       foreach($data as $tagName) {
-           $tag = new \P4\Tag();
-           $tag->name = $tagName;
-           $tag->save();
+       foreach($bookData as $tagName) {
+         $tag = new \P4\Tag();
+         $tag->name = $tagName;
+         $tag->apply_to = 'books';
+         $tag->save();
+       }
+
+       foreach ($equipmentData as $tagName) {
+         $tag = new \P4\Tag();
+         $tag->name = $tagName;
+         $tag->apply_to = 'equipment';
+         $tag->save();
        }
      }
 }

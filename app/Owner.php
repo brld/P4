@@ -19,6 +19,7 @@ class Owner extends Model
 
       $owners = \P4\Owner::orderBy('last_name','ASC')->get();
       $owners_for_dropdown = [];
+      $owners_for_dropdown[0] = '- Select an owner -';
 
       foreach ($owners as $owner) {
         $owners_for_dropdown[$owner->id] = $owner->last_name.', '.$owner->first_name;

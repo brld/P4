@@ -6,10 +6,20 @@ class EquipmentController extends Controller
 {
   public function getIndex() {
     $equipment = \P4\Equipment::orderBy('id','item')->get();
+
+    if (is_null($equipment)) {
+      \Session::flash('message','Item not found');
+      return redirect('/equipment');
+    }
     return view('equipment')->with('equipment',$equipment);
   }
   public function getAdd() {
-    return view('create-equipment');
+    $owners_for_dropdown = \P4\Owner::ownersForDropdown();
+
+    $equipment_tags_for_checkboxes = \P4\Tag::getTagsForCheckboxes();
+    return view('create-equipment')
+      ->with('owners_for_dropdown', $owners_for_dropdown)
+      ->with('equipment_tags_for_checkboxes', $equipment_tags_for_checkboxes);
   }
   public function postAdd(Request $request) {
     $this->validate($request,[
@@ -49,5 +59,36 @@ class EquipmentController extends Controller
   }
   public function postRemove() {
     return 'Hello world!';
+  }
+
+  public function getConfirmDelete($id) {
+
+    $equipment = \P4\equipment::find($id);
+
+    return view('delete')->with('equipment', $equipment);
+  }
+
+  public function getDoDelete($id) {
+
+      # Get the equipment to be deleted
+      $equipment = \P4\equipment::find($id);
+
+      if(is_null($equipment)) {
+          \Session::flash('message','equipment not found.');
+          return redirect('\equipments');
+      }
+
+      # First remove any tags associated with this equipment
+      if($equipment->tags()) {
+          $equipment->tags()->detach();
+      }
+
+      # Then delete the equipment
+      $equipment->delete();
+
+      # Done
+      \Session::flash('message',$equipment->title.' was deleted.');
+      return redirect('/equipments');
+
   }
 }

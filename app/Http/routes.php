@@ -1,8 +1,11 @@
 <?php
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', 'WelcomeController@getIndex');
+
+Route::get('/home', 'WelcomeController@getHome');
+
+Route::get('/books/confirm-delete/{id?}', 'BookController@getConfirmDelete');
+Route::get('/books/delete/{id?}', 'BookController@getDoDelete');
 
 for($i = 0; $i <= 100; $i++) {
     Route::get("/practice/ex".$i, "PracticeController@getEx".$i);

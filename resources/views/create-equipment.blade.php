@@ -23,6 +23,32 @@
            <div class='error'>{{ $errors->first('item') }}</div>
         </div>
 
+          <div class='form-group'>
+            <label for='owner_id'>Owner:</label>
+            <select name='owner_id' class='owner_id'>
+              @foreach($owners_for_dropdown as $owner_id => $owner_name)
+                <option value='{{ $owner_id }}'>{{ $owner_name }}</option>
+              @endforeach
+            </select>
+            <div class='error'>{{ $errors->first('owner') }}</div>
+          </div>
+
+          <div class='form-group'>
+            <fieldset>
+              <legend>Tags:</legend>
+              @foreach ($equipment_tags_for_checkboxes as $tag_id => $tag_name)
+              <label><br>
+                <input
+                  type="checkbox"
+                  value='{{$tag_id}}'
+                  name="tags[]"
+                >
+                {{$tag_name}}
+              </label>
+              @endforeach
+              <div class='error'>{{ $errors->first('owner') }}</div>
+            </fieldset>
+          </div>
         <div class='form-instructions'>
             All fields are required
         </div>

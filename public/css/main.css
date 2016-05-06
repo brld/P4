@@ -244,6 +244,10 @@ footer {
   float: left;
 }
 
+#itemad {
+  color: #d60000;
+}
+
 .bookh {
   width: 40%;
   float: left;
@@ -253,6 +257,10 @@ footer {
   margin-top: .6%;
   width: 5%;
   float: left;
+}
+
+#bookad {
+  color: #d60000;
 }
 
 .truncate {
@@ -271,4 +279,20 @@ fieldset {
   margin-right: 3%;
   margin-top: 1%;
   margin-bottom: -.5% !important;
+}
+
+.tags {
+    margin-top:3px;
+}
+
+.tag {
+    background-color:#eee;
+    margin-bottom:5px;
+    display:inline-block;
+    padding:3px;
+    font-size:.85em;
+}
+
+.headerflash {
+  padding-top: 30px;
 }

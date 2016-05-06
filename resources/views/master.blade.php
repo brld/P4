@@ -21,16 +21,19 @@
 
     @if(Session::get('message') != null)
         <div class='flash_message'>{{ Session::get('message') }}</div>
-        <br>
     @endif
 
+    @if(Session::get('message') != null)
+    <header class='headerflash'>
+    @else
     <header>
+    @endif
 
       <div id='menu'>
         <ul>
 
           <li>
-            <a href="/">Home</a>
+            <a href="/home">Home</a>
           </li>
 
           <li>
@@ -57,7 +60,7 @@
 
     <div id="login">
       @if(Auth::check())
-        <a href="/logout">Logout</a>
+        <a href="/logout">Logout {{$user->first_name}}</a>
       @else
         <a href="/login">Login</a>
         <a href="/register">Register</a>
