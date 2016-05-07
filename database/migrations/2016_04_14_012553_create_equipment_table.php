@@ -10,7 +10,7 @@ class CreateEquipmentTable extends Migration
      *
      * @return void
      */
-     
+
     public function up()
     {
         Schema::create('equipment', function (Blueprint $table) {
@@ -26,7 +26,7 @@ class CreateEquipmentTable extends Migration
         # The rest of the fields...
         $table->string('item');
 
-        # FYI: We're skipping the 'tags' field for now; more on that later.
+        $table->boolean('borrowed');
 
         });
     }

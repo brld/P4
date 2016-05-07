@@ -5,7 +5,7 @@ use P4\Http\Requests;
 class BookController extends Controller
 {
   public function getIndex() {
-    $books = \P4\Book::orderBy('id','title')->get();
+    $books = \P4\Book::orderBy('id','title')->where('borrowed','=','0');
 
     if (is_null($books)) {
       \Session::flash('message','Book not found');

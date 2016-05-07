@@ -27,8 +27,8 @@ class CreateBooksTable extends Migration
         $table->string('title');
         #$table->string('owner');
         $table->integer('page_count');
+        $table->boolean('borrowed');
 
-        # FYI: We're skipping the 'tags' field for now; more on that later.
 
         });
     }
