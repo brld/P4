@@ -275,6 +275,14 @@ fieldset {
 }
 
 #login {
+  font-size: 90%;
+  text-align: right;
+  margin-right: 3%;
+  margin-top: 1%;
+  margin-bottom: -.5% !important;
+}
+#loginbig {
+  font-size: 100%;
   text-align: right;
   margin-right: 3%;
   margin-top: 1%;

@@ -58,9 +58,13 @@
       </div>
     </header>
 
+    @if(Auth::check())
     <div id="login">
+    @else
+    <div id="loginbig">
+    @endif
       @if(Auth::check())
-        <a href="/logout">Logout {{$user->first_name}}</a>
+        Logged in as {{$user->first_name}} {{$user->last_name}}. <a href="/logout">Logout</a>
       @else
         <a href="/login">Login</a>
         <a href="/register">Register</a>
