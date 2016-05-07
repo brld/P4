@@ -5,7 +5,7 @@ use P4\Http\Requests;
 class BookController extends Controller
 {
   public function getIndex() {
-    $books = \P4\Book::orderBy('id','title')->where('borrowed','=','0');
+    $books = \P4\Book::orderBy('id','title')->get();
 
     if (is_null($books)) {
       \Session::flash('message','Book not found');
@@ -85,11 +85,22 @@ class BookController extends Controller
     return redirect('/books');
 
   }
-  public function getBorrow() {
-    return 'Hello world!';
+  public function getBorrow($id = 1) {
+    $book = \P4\Book::find($id);
+
+    return view('borrow-books')->with('book',$book);
   }
-  public function postBorrow() {
-    return 'Hello world!';
+  public function postBorrow(Request $request) {
+    $book = \P4\Book::find($request->id);
+
+
+    $book->borrowed = TRUE;
+
+    $book->save();
+
+    \Session::flash('message','You have borrowed that book.');
+
+    return redirect('/books');
   }
   public function getRemove() {
     return 'Hello world!';

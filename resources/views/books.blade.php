@@ -12,7 +12,9 @@
     @foreach($books as $book)
       <h2 class='bookh'>{{ $book->title }}</h2>
       <a class='booka' href="/books/edit/{{$book->id}}">Edit</a>
+      <a class='booka' id='bookab' href="/books/borrow/{{$book->id}}">Borrow</a>
       <a class='booka' id='bookad' href='/books/confirm-delete/{{$book->id}}'>Delete</a>
+      @if ($book->borrowed=true) <h3 class='truncate' id='borrowed'>Borrowed</h3>@endif
       <h3 class='truncate'>Owner: {{ $book->owner->first_name }} {{ $book->owner->last_name }}</h3>
       <div class='tags'>
           @foreach($book->tags as $tag)

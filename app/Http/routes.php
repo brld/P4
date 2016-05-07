@@ -70,10 +70,10 @@ Route::post('/equipment/edit', 'EquipmentController@postEdit');
 
 //============== [BORROW ITEMS] ==============\\
 //**************     BOOKS     **************\\
-Route::get('/books/borrow', 'BookController@getBorrow');
+Route::get('/books/borrow/{id?}', 'BookController@getBorrow');
 Route::post('/books/borrow', 'BookController@postBorrow');
 //**************   EQUIPMENT   **************\\
-Route::get('/equipment/borrow', 'EquipmentController@getBorrow');
+Route::get('/equipment/borrow{id?}', 'EquipmentController@getBorrow');
 Route::post('/equipment/borrow', 'EquipmentController@postBorrow');
 //============== [BORROW ITEMS] ==============\\
 

@@ -255,12 +255,21 @@ footer {
 
 .booka {
   margin-top: .6%;
-  width: 5%;
+  width: 7%;
   float: left;
+}
+
+#bookab {
+  width: 10%;
 }
 
 #bookad {
   color: #d60000;
+  width: 7%;
+}
+
+#borrowed {
+  color: grey;
 }
 
 .truncate {

@@ -5,7 +5,7 @@ use P4\Http\Requests;
 class EquipmentController extends Controller
 {
   public function getIndex() {
-    $equipment = \P4\Equipment::orderBy('id','item')->where('borrowed','=','0');
+    $equipment = \P4\Equipment::orderBy('id','item')->get();
 
     if (is_null($equipment)) {
       \Session::flash('message','Item not found');

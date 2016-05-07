@@ -41,6 +41,7 @@
             <ul>
               <li><a href="/books">View all books</a></li>
               <li><a href="/books/add">Add a new book</a></li>
+              <li><a href="/books/add">View borrowed books</a></li>
             </ul>
           </li>
           <li>
@@ -48,6 +49,7 @@
             <ul>
               <li><a href="/equipment">View all equipment</a></li>
               <li><a href="/equipment/add">Add new equipment</a></li>
+              <li><a href="/books/add">View borrowed equipment</a></li>
             </ul>
           </li>
 
