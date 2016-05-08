@@ -29,11 +29,11 @@
     <header>
     @endif
 
-      <div id='menu'>
+      <div class='menu'>
         <ul>
 
           <li>
-            <a href="/home">Home</a>
+            <a class='pushl' href="/home">Home</a>
           </li>
 
           <li>
@@ -45,13 +45,27 @@
             </ul>
           </li>
           <li>
-            <a href="#">Equipment ⌄</a>
+            <a class='pushr' href="#">Equipment ⌄</a>
             <ul>
               <li><a href="/equipment">View all equipment</a></li>
               <li><a href="/equipment/add">Add new equipment</a></li>
               <li><a href="/books/add">View borrowed equipment</a></li>
             </ul>
           </li>
+          <div id='menu'>
+            @if(Auth::check())
+            <div id="login">
+            @else
+            <div id="loginbig">
+            @endif
+              @if(Auth::check())
+                Logged in as {{$user->first_name}} {{$user->last_name}}. <li><a class='loginfields' href="/logout">Logout</a></li>
+              @else
+                <li><a class='loginfields' href="/login">Login</a></li>
+                <li><a class='loginfields' href="/register">Register</a></li>
+              @endif
+            </div>
+          </div>
 
           <div class='clear'>
 
@@ -60,18 +74,7 @@
       </div>
     </header>
 
-    @if(Auth::check())
-    <div id="login">
-    @else
-    <div id="loginbig">
-    @endif
-      @if(Auth::check())
-        Logged in as {{$user->first_name}} {{$user->last_name}}. <a href="/logout">Logout</a>
-      @else
-        <a href="/login">Login</a>
-        <a href="/register">Register</a>
-      @endif
-    </div>
+
 
     <section>
         {{-- Main page content will be yielded here --}}

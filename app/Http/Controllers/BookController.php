@@ -89,17 +89,17 @@ class BookController extends Controller
   }
   public function getBorrow($id = 1) {
     $book = \P4\Book::find($id);
-    $user = \P4\User::find($id);
+    $user = \P4\User::find(\Auth::id());
 
     return view('borrow-books')->with('book',$book)->with('user',$user);
   }
   public function postBorrow(Request $request) {
     $book = \P4\Book::find($request->id);
     $user = \P4\User::find(\Auth::id());
-
+    
 
     $book->borrowed = TRUE;
-    // $book->borrowedBy = $user->first_name;
+    $book->borrowedBy = $user->first_name;
 
     $book->save();
 

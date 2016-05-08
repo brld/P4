@@ -116,17 +116,17 @@ footer {
 }
 
 /* Dropdown menu with CSS, credit to TVAC Studio */
-#menu {
+.menu {
   background: #699966;
   color: #fff;
   padding: 0px 5px 0px 5px;
 }
 
-#menu {
+.menu {
   padding-left: 3%;
 }
 
-#menu ul {
+.menu ul {
   padding: 0px;
   margin: 0 auto;
   list-style: none;
@@ -135,11 +135,11 @@ footer {
   width: fit-content;
 }
 
-#menu ul li {
+.menu ul li {
   float: left;
 }
 
-#menu ul li a {
+.menu ul li a {
   color: #fff;
   background: #699966;
   padding: 10px;
@@ -149,31 +149,31 @@ footer {
   font-size: 15px;
 }
 
-#menu ul li a:hover {
+.menu ul li a:hover {
   background: #80BA7C;
   color: #fff;
   transition: all 0.3s ease 0s;
 }
 
-#menu ul li ul {
+.menu ul li ul {
   position: absolute;
   height: 0px;
   overflow: hidden;
 }
 
-#menu ul li ul li {
+.menu ul li ul li {
   float: none;
 }
 
-#menu ul li:hover ul {
+.menu ul li:hover ul {
   overflow: visible;
 }
 
-#menu ul li:hover ul li a {
+.menu ul li:hover ul li a {
   padding: 10px;
 }
 
-#menu ul li ul li a {
+.menu ul li ul li a {
   transition: 0.3s;
   padding: 0px 10px;
 }
@@ -315,4 +315,68 @@ fieldset {
 
 .headerflash {
   padding-top: 30px;
+}
+
+input[type=text], input[type=password] {
+    width: 15%;
+    padding: 6px 10px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+select {
+    width: 15%;
+    padding: 6px 10px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#menu{
+    width: 14%;
+    position:absolute;
+    top:-3px;
+    right: 0;
+}
+
+#menu ul {
+  padding: 0px;
+  margin: 0 auto;
+  list-style: none;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}*/
+
+#menu ul li a {
+  color: #fff;
+  background: #699966;
+  padding: 10px;
+  padding-bottom: 9px;
+  display: block;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+#menu ul li a:hover {
+  background: #80BA7C;
+  color: #fff;
+  transition: all 0.3s ease 0s;
+}
+
+#menu ul li ul {
+  position: absolute;
+  height: 0px;
+  overflow: hidden;
+}
+
+
+
+#menu ul li ul li a {
+  transition: 0.3s;
+  padding: 0px 10px;
 }
