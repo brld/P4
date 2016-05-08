@@ -28,6 +28,7 @@ class CreateBooksTable extends Migration
         #$table->string('owner');
         $table->integer('page_count');
         $table->boolean('borrowed');
+        $table->string('borrowedBy');
 
 
         });

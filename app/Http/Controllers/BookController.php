@@ -6,12 +6,14 @@ class BookController extends Controller
 {
   public function getIndex() {
     $books = \P4\Book::orderBy('id','title')->get();
+    $user = \P4\User::with('first_name','last_name')->find(\Auth::id());
+
 
     if (is_null($books)) {
       \Session::flash('message','Book not found');
       return redirect('/');
     }
-    return view('books')->with('books',$books);
+    return view('books')->with('books',$books)->with('user',$user);
   }
   public function getAdd() {
 
@@ -33,7 +35,7 @@ class BookController extends Controller
       'owner_id' => 'not_in:0'
     ],$messages);
 
-    $data = $request->only(['title','owner_id']);
+    $data = $request->only(['title','owner_id','user_id']);
 
     $book = \P4\Book::create($data);
 
@@ -87,14 +89,17 @@ class BookController extends Controller
   }
   public function getBorrow($id = 1) {
     $book = \P4\Book::find($id);
+    $user = \P4\User::find($id);
 
-    return view('borrow-books')->with('book',$book);
+    return view('borrow-books')->with('book',$book)->with('user',$user);
   }
   public function postBorrow(Request $request) {
     $book = \P4\Book::find($request->id);
+    $user = \P4\User::find(\Auth::id());
 
 
     $book->borrowed = TRUE;
+    // $book->borrowedBy = $user->first_name;
 
     $book->save();
 

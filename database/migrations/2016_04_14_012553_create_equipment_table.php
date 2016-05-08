@@ -27,6 +27,7 @@ class CreateEquipmentTable extends Migration
         $table->string('item');
 
         $table->boolean('borrowed');
+        $table->string('borrowedBy');
 
         });
     }

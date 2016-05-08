@@ -14,6 +14,7 @@
       <a class='itema'href="/equipment/edit/{{$indiEquipment->id}}">Edit</a>
       <a class='itema' id='itemad' href='/equipment/confirm-delete/{{$indiEquipment->id}}'>Delete</a>
       <h3 class='truncate'>Owner: {{ $indiEquipment->owner->first_name }} {{ $indiEquipment->owner->last_name }}</h3>
+      @if ($indiEquipment->borrowed==true) <h3 class='truncate' id='borrowed'>Borrowed</h3>@endif
       <div class='tags'>
           @foreach($indiEquipment->tags as $tag)
               <div class='tag'>{{ $tag->name }}</div>

@@ -269,7 +269,9 @@ footer {
 }
 
 #borrowed {
-  color: grey;
+  color: #aaa;
+  font-size: 100%;
+  text-transform: uppercase;
 }
 
 .truncate {
