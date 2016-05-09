@@ -10,7 +10,7 @@ class WelcomeController extends Controller
       return redirect('/books');
     }
 
-    return view('Welcome.index');
+    return view('welcome.index');
   }
 
   public function getHome() {
