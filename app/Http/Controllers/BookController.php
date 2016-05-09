@@ -6,14 +6,13 @@ class BookController extends Controller
 {
   public function getIndex() {
     $books = \P4\Book::orderBy('id','title')->get();
-    $user = \P4\User::with('first_name','last_name')->find(\Auth::id());
 
 
     if (is_null($books)) {
       \Session::flash('message','Book not found');
       return redirect('/');
     }
-    return view('books')->with('books',$books)->with('user',$user);
+    return view('books')->with('books',$books);
   }
   public function getAdd() {
 
@@ -89,29 +88,20 @@ class BookController extends Controller
   }
   public function getBorrow($id = 1) {
     $book = \P4\Book::find($id);
-    $user = \P4\User::find(\Auth::id());
 
-    return view('borrow-books')->with('book',$book)->with('user',$user);
+    return view('borrow-books')->with('book',$book);
   }
   public function postBorrow(Request $request) {
     $book = \P4\Book::find($request->id);
-    $user = \P4\User::find(\Auth::id());
-    
+
 
     $book->borrowed = TRUE;
-    $book->borrowedBy = $user->first_name;
 
     $book->save();
 
     \Session::flash('message','You have borrowed that book.');
 
     return redirect('/books');
-  }
-  public function getRemove() {
-    return 'Hello world!';
-  }
-  public function postRemove() {
-    return 'Hello world!';
   }
 
   public function getConfirmDelete($id) {
@@ -143,6 +133,23 @@ class BookController extends Controller
       \Session::flash('message',$book->title.' was deleted.');
       return redirect('/books');
 
+  }
+
+
+  public function getConfirmReturn($id) {
+    $book = \P4\Book::find($id);
+
+    return view('return-books')->with('book',$book);
+
+  }
+
+  public function getDoReturn($id) {
+    $book = \P4\Book::find($id);
+
+    $book->borrowed=FALSE;
+
+    \Session::flash('message',$book->title.' has been returned.');
+    return redirect('/books');
   }
 
 }

@@ -77,6 +77,9 @@ Route::get('/equipment/borrow{id?}', 'EquipmentController@getBorrow');
 Route::post('/equipment/borrow', 'EquipmentController@postBorrow');
 //============== [BORROW ITEMS] ==============\\
 
+Route::get('/books/confirm-return/{id?}', 'BookController@getConfirmReturn');
+Route::get('/books/return/{id?}', 'BookController@getDoReturn');
+
 
 //============== [REMOVE ITEMS] ==============\\
 //**************     BOOKS     **************\\

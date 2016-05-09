@@ -15,7 +15,7 @@
         {{ csrf_field() }}
 
         <div class='form-group'>
-          <label for='time'>Legnth of time:</label>
+          <label for='time'>Length of time:</label>
           <select name='time' class='time'>
               <option value='1'>1 day</option>
               <option value='7' selected>1 week</option>
