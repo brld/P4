@@ -59,7 +59,7 @@
             <div id="loginbig">
             @endif
               @if(Auth::check())
-                Logged in as {{$user->first_name}} {{$user->last_name}}. <li><a class='loginfields' href="/logout">Logout</a></li>
+                <li><a class='loginfields' href="/logout">Logout</a></li>
               @else
                 <li><a class='loginfields' href="/login">Login</a></li>
                 <li><a class='loginfields' href="/register">Register</a></li>
