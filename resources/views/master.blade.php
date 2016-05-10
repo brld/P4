@@ -42,6 +42,7 @@
               <li><a href="/books">View all books</a></li>
               <li><a href="/books/add">Add a new book</a></li>
               <li><a href="/books/add">View borrowed books</a></li>
+              <li><a href="/newbooks">View newest books</a></li>
             </ul>
           </li>
           <li>

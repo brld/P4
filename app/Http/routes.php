@@ -2,6 +2,8 @@
 
 Route::get('/', 'WelcomeController@getIndex');
 
+Route::get('/newbooks', 'BookController@getNewBooks');
+
 Route::get('/home', 'WelcomeController@getHome');
 
 Route::get('/books/confirm-delete/{id?}', 'BookController@getConfirmDelete');

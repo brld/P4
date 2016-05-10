@@ -15,8 +15,4 @@ class Book extends Model
     public function tags() {
       return $this->belongsToMany('\P4\Tag')->withTimeStamps();
     }
-
-    public function user() {
-      return $this->belongsTo('\App\User');
-    }
 }
