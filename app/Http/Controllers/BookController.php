@@ -15,7 +15,7 @@ class BookController extends Controller
     return view('books')->with('books',$books);
   }
   public function getNewBooks() {
-    $books = \P4\Book::orderBy('id','title')->where('created_at', '>=', date('Y-m-d').' 00:00:03');
+    $books = \P4\Book::orderBy('id','title')->where('created_at', '<=', date('Y-m-d').' 00:00:00');
 
     return view('my-books')->with('books',$books);
   }
