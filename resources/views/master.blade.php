@@ -33,7 +33,7 @@
         <ul>
 
           <li>
-            <a class='pushl' href="/home">Home</a>
+            <a class='pushl' href="/">Home</a>
           </li>
 
           <li>
@@ -41,7 +41,6 @@
             <ul>
               <li><a href="/books">View all books</a></li>
               <li><a href="/books/add">Add a new book</a></li>
-              <li><a href="/books/add">View borrowed books</a></li>
               <li><a href="/newbooks">View newest books</a></li>
             </ul>
           </li>
@@ -50,7 +49,13 @@
             <ul>
               <li><a href="/equipment">View all equipment</a></li>
               <li><a href="/equipment/add">Add new equipment</a></li>
-              <li><a href="/books/add">View borrowed equipment</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">Search ⌄</a>
+            <ul>
+              <li><a href='/books/search'>Search for books</a></li>
+              <li><a href='/equipment/search'>Search for equipment</a></li>
             </ul>
           </li>
           <div id='menu'>

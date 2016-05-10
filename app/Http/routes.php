@@ -2,13 +2,6 @@
 
 Route::get('/', 'WelcomeController@getIndex');
 
-Route::get('/newbooks', 'BookController@getNewBooks');
-
-Route::get('/home', 'WelcomeController@getHome');
-
-Route::get('/books/confirm-delete/{id?}', 'BookController@getConfirmDelete');
-Route::get('/books/delete/{id?}', 'BookController@getDoDelete');
-
 for($i = 0; $i <= 100; $i++) {
     Route::get("/practice/ex".$i, "PracticeController@getEx".$i);
 }
@@ -41,56 +34,67 @@ Route::get('/show-login-status', function() {
 });
 //============== [AUTHENTICATION] ==============\\
 
+Route::group(['middleware' => 'auth'], function() {
 
-//============== [SHOW ITEMS] ==============\\
-//**************    BOOKS    **************\\
-Route::get('/books', 'BookController@getIndex');
-//**************  EQUIPMENT  **************\\
-Route::get('/equipment', 'EquipmentController@getIndex');
-//============== [SHOW ITEMS] ==============\\
-
-
-//============== [ADD ITEMS] ==============\\
-//**************    BOOKS    **************\\
-Route::get('/books/add', 'BookController@getAdd');
-Route::post('/books/add', 'BookController@postAdd');
-//**************  EQUIPMENT  **************\\
-Route::get('/equipment/add', 'EquipmentController@getAdd');
-Route::post('/equipment/add', 'EquipmentController@postAdd');
-//============== [ADD ITEMS] ==============\\
+  //============== [SHOW ITEMS] ==============\\
+  //**************    BOOKS    **************\\
+  Route::get('/books', 'BookController@getIndex');
+  Route::get('/newbooks', 'BookController@getNewBooks');
+  //**************  EQUIPMENT  **************\\
+  Route::get('/equipment', 'EquipmentController@getIndex');
+  Route::get('/newequipment', 'EquipmentController@getNewEquipment');
+  //============== [SHOW ITEMS] ==============\\
 
 
-//============== [EDIT ITEMS] ==============\\
-//**************     BOOKS     **************\\
-Route::get('/books/edit/{id?}', 'BookController@getedit');
-Route::post('/books/edit', 'BookController@postEdit');
-//**************   EQUIPMENT   **************\\
-Route::get('/equipment/edit/{id?}', 'EquipmentController@getEdit');
-Route::post('/equipment/edit', 'EquipmentController@postEdit');
-//============== [EDIT ITEMS] ==============\\
+  //============== [ADD ITEMS] ==============\\
+  //**************    BOOKS    **************\\
+  Route::get('/books/add', 'BookController@getAdd');
+  Route::post('/books/add', 'BookController@postAdd');
+  //**************  EQUIPMENT  **************\\
+  Route::get('/equipment/add', 'EquipmentController@getAdd');
+  Route::post('/equipment/add', 'EquipmentController@postAdd');
+  //============== [ADD ITEMS] ==============\\
 
 
-//============== [BORROW ITEMS] ==============\\
-//**************     BOOKS     **************\\
-Route::get('/books/borrow/{id?}', 'BookController@getBorrow');
-Route::post('/books/borrow', 'BookController@postBorrow');
-//**************   EQUIPMENT   **************\\
-Route::get('/equipment/borrow{id?}', 'EquipmentController@getBorrow');
-Route::post('/equipment/borrow', 'EquipmentController@postBorrow');
-//============== [BORROW ITEMS] ==============\\
-
-Route::get('/books/confirm-return/{id?}', 'BookController@getConfirmReturn');
-Route::get('/books/return/{id?}', 'BookController@getDoReturn');
+  //============== [EDIT ITEMS] ==============\\
+  //**************     BOOKS     **************\\
+  Route::get('/books/edit/{id?}', 'BookController@getedit');
+  Route::post('/books/edit', 'BookController@postEdit');
+  //**************   EQUIPMENT   **************\\
+  Route::get('/equipment/edit/{id?}', 'EquipmentController@getEdit');
+  Route::post('/equipment/edit', 'EquipmentController@postEdit');
+  //============== [EDIT ITEMS] ==============\\
 
 
-//============== [REMOVE ITEMS] ==============\\
-//**************     BOOKS     **************\\
-Route::get('/books/remove', 'BookController@getRemove');
-Route::post('/books/remove', 'BookController@postRemove');
-//**************   EQUIPMENT   **************\\
-Route::get('equipment/remove', 'EquipmentController@getRemove');
-Route::post('equipment/remove', 'EquipmentController@postRemove');
-//============== [REMOVE ITEMS] ==============\\
+  //============== [BORROW ITEMS] ==============\\
+  //**************     BOOKS     **************\\
+  Route::get('/books/borrow/{id?}', 'BookController@getBorrow');
+  Route::post('/books/borrow', 'BookController@postBorrow');
+  //**************   EQUIPMENT   **************\\
+  Route::get('/equipment/borrow{id?}', 'EquipmentController@getBorrow');
+  Route::post('/equipment/borrow', 'EquipmentController@postBorrow');
+  //============== [BORROW ITEMS] ==============\\
+
+  Route::get('/books/confirm-return/{id?}', 'BookController@getConfirmReturn');
+  Route::get('/books/return/{id?}', 'BookController@getDoReturn');
+
+
+  //============== [REMOVE ITEMS] ==============\\
+  //**************     BOOKS     **************\\
+  Route::get('/books/confirm-delete/{id?}', 'BookController@getConfirmDelete');
+  Route::get('/books/delete/{id?}', 'BookController@getDoDelete');
+  //**************   EQUIPMENT   **************\\
+  Route::get('/equipment/confirm-delete/{id?}', 'EquipmentController@getConfirmDelete');
+  Route::get('/equipment/delete/{id?}', 'EquipmentController@getDoDelete');
+  //============== [REMOVE ITEMS] ==============\\
+
+  Route::get('/books/search', 'BookController@getSearch');
+  Route::post('/books/search', 'BookController@postSearch');
+
+  Route::get('/equipment/search', 'EquipmentController@getSearch');
+  Route::post('/equipment/search', 'EquipmentController@postSearch');
+
+});
 
 Route::get('/debug', function() {
     echo '<pre>';

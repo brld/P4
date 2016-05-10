@@ -19,17 +19,17 @@
 
         <div class='form-group'>
             <label for='first_name'>First Name</label>
-            <input type='text' name='first_name' id='first_name' value='{{ old('first_name') }}'>
+            <input type='text' name='first_name' id='first_name' placeholder='First name' value='{{ old('first_name') }}'>
         </div>
 
         <div class='form-group'>
             <label for='last_name'>Last Name</label>
-            <input type='text' name='last_name' id='last_name' value='{{ old('last_name') }}'>
+            <input type='text' name='last_name' id='last_name' placeholder='Last name' value='{{ old('last_name') }}'>
         </div>
 
         <div class='form-group'>
             <label for='email'>Email</label>
-            <input type='text' name='email' id='email' value='{{ old('email') }}'>
+            <input type='text' name='email' id='email' placeholder='i.e. john@example.com' value='{{ old('email') }}'>
         </div>
 
         <div class='form-group'>

@@ -11,13 +11,13 @@ class EquipmentController extends Controller
       \Session::flash('message','Item not found');
       return redirect('/equipment');
     }
-    return view('equipment')->with('equipment',$equipment);
+    return view('equipment.equipment')->with('equipment',$equipment);
   }
   public function getAdd() {
     $owners_for_dropdown = \P4\Owner::ownersForDropdown();
 
     $equipment_tags_for_checkboxes = \P4\Tag::getEquipmentTagsForCheckboxes();
-    return view('create-equipment')
+    return view('equipment.create-equipment')
       ->with('owners_for_dropdown', $owners_for_dropdown)
       ->with('equipment_tags_for_checkboxes', $equipment_tags_for_checkboxes);
   }
@@ -59,7 +59,7 @@ class EquipmentController extends Controller
       $tags_for_this_item[] = $tag->id;
     }
 
-    return view('edit-equipment')
+    return view('equipment.edit')
       ->with('equipment',$equipment)
       ->with('owners_for_dropdown',$owners_for_dropdown)
       ->with('equipment_tags_for_checkboxes',$equipment_tags_for_checkboxes)
@@ -105,7 +105,7 @@ class EquipmentController extends Controller
 
     $equipment = \P4\equipment::find($id);
 
-    return view('delete')->with('equipment', $equipment);
+    return view('equipment.delete')->with('equipment', $equipment);
   }
 
   public function getDoDelete($id) {
@@ -130,5 +130,25 @@ class EquipmentController extends Controller
       \Session::flash('message',$equipment->title.' was deleted.');
       return redirect('/equipments');
 
+  }
+
+  public function getSearch() {
+    return view('equipment.search');
+  }
+
+  /**
+  * Responds to requests to POST /book/search/
+  * This method is used in response to an ajax request from GET /book/search
+  * See /public/js/search.js
+  */
+  public function postSearch(Request $request) {
+
+      # Do the search with the provided search term
+      $equipment = \P4\Equipment::where('item','LIKE','%'.$request->searchTerm.'%')->get();
+
+      # Return the view with the books
+      return view('equipment.search-ajax')->with(
+          ['equipment' => $equipment]
+      );
   }
 }

@@ -6,14 +6,6 @@ class WelcomeController extends Controller
 {
   public function getIndex() {
 
-    if(\Auth::check()) {
-      return redirect('/books');
-    }
-
     return view('welcome.index');
-  }
-
-  public function getHome() {
-    return view('index');
   }
 }

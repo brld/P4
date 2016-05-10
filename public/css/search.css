@@ -1,0 +1,9 @@
+#results {
+    margin-top:10px;
+}
+
+#loading {
+    display:none;
+    margin-left:5px;
+    color:green;
+}

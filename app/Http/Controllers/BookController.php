@@ -12,19 +12,19 @@ class BookController extends Controller
       \Session::flash('message','Book not found');
       return redirect('/');
     }
-    return view('books')->with('books',$books);
+    return view('books.books')->with('books',$books);
   }
   public function getNewBooks() {
     $books = \P4\Book::orderBy('id','title')->where('created_at', '<=', date('Y-m-d').' 00:00:00');
 
-    return view('my-books')->with('books',$books);
+    return view('books.my-books')->with('books',$books);
   }
   public function getAdd() {
 
     $owners_for_dropdown = \P4\Owner::ownersForDropdown();
 
     $tags_for_checkboxes = \P4\Tag::getTagsForCheckboxes();
-    return view('create-books')
+    return view('books.create')
       ->with('owners_for_dropdown', $owners_for_dropdown)
       ->with('tags_for_checkboxes', $tags_for_checkboxes);
   }
@@ -63,7 +63,7 @@ class BookController extends Controller
       $tags_for_this_book[] = $tag->id;
     }
 
-    return view('edit-books')
+    return view('books.edit')
       ->with('book',$book)
       ->with('owners_for_dropdown',$owners_for_dropdown)
       ->with('tags_for_checkboxes',$tags_for_checkboxes)
@@ -94,7 +94,7 @@ class BookController extends Controller
   public function getBorrow($id = 1) {
     $book = \P4\Book::find($id);
 
-    return view('borrow-books')->with('book',$book);
+    return view('books.borrow')->with('book',$book);
   }
   public function postBorrow(Request $request) {
     $book = \P4\Book::find($request->id);
@@ -113,7 +113,7 @@ class BookController extends Controller
 
     $book = \P4\Book::find($id);
 
-    return view('delete')->with('book', $book);
+    return view('books.delete')->with('book', $book);
   }
 
   public function getDoDelete($id) {
@@ -144,7 +144,7 @@ class BookController extends Controller
   public function getConfirmReturn($id) {
     $book = \P4\Book::find($id);
 
-    return view('return-books')->with('book',$book);
+    return view('books.return')->with('book',$book);
 
   }
 
@@ -155,6 +155,26 @@ class BookController extends Controller
 
     \Session::flash('message',$book->title.' has been returned.');
     return redirect('/books');
+  }
+
+  public function getSearch() {
+    return view('books.search');
+  }
+
+  /**
+  * Responds to requests to POST /book/search/
+  * This method is used in response to an ajax request from GET /book/search
+  * See /public/js/search.js
+  */
+  public function postSearch(Request $request) {
+
+      # Do the search with the provided search term
+      $books = \P4\Book::where('title','LIKE','%'.$request->searchTerm.'%')->get();
+
+      # Return the view with the books
+      return view('books.search-ajax')->with(
+          ['books' => $books]
+      );
   }
 
 }
