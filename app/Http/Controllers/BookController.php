@@ -14,10 +14,11 @@ class BookController extends Controller
     }
     return view('books.books')->with('books',$books);
   }
-  public function getNewBooks() {
-    $books = \P4\Book::orderBy('id','title')->where('created_at', '<=', date('Y-m-d').' 00:00:00');
+  public function getNew() {
+    $past_two_days = \Carbon\Carbon::today()->subDays(1);
+    $books = \P4\Book::whereDate('created_at','>',$past_two_days)->get();
 
-    return view('books.my-books')->with('books',$books);
+    return view('books.new')->with('books',$books);
   }
   public function getAdd() {
 
@@ -152,6 +153,8 @@ class BookController extends Controller
     $book = \P4\Book::find($id);
 
     $book->borrowed=FALSE;
+
+    $book->save();
 
     \Session::flash('message',$book->title.' has been returned.');
     return redirect('/books');

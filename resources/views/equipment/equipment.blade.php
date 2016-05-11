@@ -12,6 +12,8 @@
     @foreach($equipment as $indiEquipment)
       <h2 class='item'>{{ $indiEquipment->item }}</h2>
       <a class='itema'href="/equipment/edit/{{$indiEquipment->id}}">Edit</a>
+      @if ($indiEquipment->borrowed==FALSE)<a class='booka' id='itemab' href="/equipment/borrow/{{$indiEquipment->id}}">Borrow</a>@endif
+      @if ($indiEquipment->borrowed==TRUE)<a class='booka' id='itemab' href="/equipment/confirm-return/{{$indiEquipment->id}}">Return</a>@endif
       <a class='itema' id='itemad' href='/equipment/confirm-delete/{{$indiEquipment->id}}'>Delete</a>
       <h3 class='truncate'>Owner: {{ $indiEquipment->owner->first_name }} {{ $indiEquipment->owner->last_name }}</h3>
       @if ($indiEquipment->borrowed==true) <h3 class='truncate' id='borrowed'>Borrowed</h3>@endif

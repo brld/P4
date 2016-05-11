@@ -49,6 +49,7 @@
             <ul>
               <li><a href="/equipment">View all equipment</a></li>
               <li><a href="/equipment/add">Add new equipment</a></li>
+              <li><a href="/newequipment">View newest equipment</a></li>
             </ul>
           </li>
           <li>
@@ -81,7 +82,6 @@
     </header>
 
 
-
     <section>
         {{-- Main page content will be yielded here --}}
         @yield('content')
@@ -98,6 +98,7 @@
 
     {{-- Yield any page specific JS files or anything else you might want at the end of the body --}}
     @yield('body')
+
 
 </body>
 </html>

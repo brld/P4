@@ -39,10 +39,10 @@ Route::group(['middleware' => 'auth'], function() {
   //============== [SHOW ITEMS] ==============\\
   //**************    BOOKS    **************\\
   Route::get('/books', 'BookController@getIndex');
-  Route::get('/newbooks', 'BookController@getNewBooks');
+  Route::get('/newbooks', 'BookController@getNew');
   //**************  EQUIPMENT  **************\\
   Route::get('/equipment', 'EquipmentController@getIndex');
-  Route::get('/newequipment', 'EquipmentController@getNewEquipment');
+  Route::get('/newequipment', 'EquipmentController@getNew');
   //============== [SHOW ITEMS] ==============\\
 
 
@@ -71,12 +71,14 @@ Route::group(['middleware' => 'auth'], function() {
   Route::get('/books/borrow/{id?}', 'BookController@getBorrow');
   Route::post('/books/borrow', 'BookController@postBorrow');
   //**************   EQUIPMENT   **************\\
-  Route::get('/equipment/borrow{id?}', 'EquipmentController@getBorrow');
+  Route::get('/equipment/borrow/{id?}', 'EquipmentController@getBorrow');
   Route::post('/equipment/borrow', 'EquipmentController@postBorrow');
   //============== [BORROW ITEMS] ==============\\
 
   Route::get('/books/confirm-return/{id?}', 'BookController@getConfirmReturn');
   Route::get('/books/return/{id?}', 'BookController@getDoReturn');
+  Route::get('/equipment/confirm-return/{id?}', 'EquipmentController@getConfirmReturn');
+  Route::get('/equipment/return/{id?}', 'EquipmentController@getDoReturn');
 
 
   //============== [REMOVE ITEMS] ==============\\

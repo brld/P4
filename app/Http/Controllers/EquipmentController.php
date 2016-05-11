@@ -13,11 +13,19 @@ class EquipmentController extends Controller
     }
     return view('equipment.equipment')->with('equipment',$equipment);
   }
+
+  public function getNew() {
+    $past_two_days = \Carbon\Carbon::today()->subDays(1);
+    $equipment = \P4\Equipment::whereDate('created_at','>',$past_two_days)->get();
+
+    return view('equipment.new')->with('equipment',$equipment);
+  }
+
   public function getAdd() {
     $owners_for_dropdown = \P4\Owner::ownersForDropdown();
 
     $equipment_tags_for_checkboxes = \P4\Tag::getEquipmentTagsForCheckboxes();
-    return view('equipment.create-equipment')
+    return view('equipment.create')
       ->with('owners_for_dropdown', $owners_for_dropdown)
       ->with('equipment_tags_for_checkboxes', $equipment_tags_for_checkboxes);
   }
@@ -88,34 +96,43 @@ class EquipmentController extends Controller
 
     return redirect('/equipment');
   }
-  public function getBorrow() {
-    return 'Hello world!';
+  public function getBorrow($id = 1) {
+    $equipment = \P4\Equipment::find($id);
+
+    return view('equipment.borrow')->with('equipment',$equipment);
   }
-  public function postBorrow() {
-    return 'Hello world!';
-  }
-  public function getRemove() {
-    return 'Hello world!';
-  }
-  public function postRemove() {
-    return 'Hello world!';
+  public function postBorrow(Request $request) {
+    $equipment = \P4\Equipment::find($request->id);
+
+
+    $equipment->borrowed = TRUE;
+
+    $equipment->save();
+
+    \Session::flash('message','You have borrowed that item.');
+
+    return redirect('/equipment');
   }
 
   public function getConfirmDelete($id) {
 
-    $equipment = \P4\equipment::find($id);
+    $equipment = \P4\Equipment::find($id);
 
     return view('equipment.delete')->with('equipment', $equipment);
+  }
+
+  public function getSearch() {
+    return view('equipment.search');
   }
 
   public function getDoDelete($id) {
 
       # Get the equipment to be deleted
-      $equipment = \P4\equipment::find($id);
+      $equipment = \P4\Equipment::find($id);
 
       if(is_null($equipment)) {
           \Session::flash('message','equipment not found.');
-          return redirect('\equipments');
+          return redirect('\equipment');
       }
 
       # First remove any tags associated with this equipment
@@ -127,18 +144,34 @@ class EquipmentController extends Controller
       $equipment->delete();
 
       # Done
-      \Session::flash('message',$equipment->title.' was deleted.');
-      return redirect('/equipments');
+      \Session::flash('message',$equipment->item.' was deleted.');
+      return redirect('/equipment');
 
   }
 
-  public function getSearch() {
-    return view('equipment.search');
+
+  public function getConfirmReturn($id) {
+    $equipment = \P4\Equipment::find($id);
+
+    return view('equipment.return')->with('equipment',$equipment);
+
   }
+
+  public function getDoReturn($id) {
+    $equipment = \P4\Equipment::find($id);
+
+    $equipment->borrowed=FALSE;
+
+    $equipment->save();
+
+    \Session::flash('message',$equipment->item.' has been returned.');
+    return redirect('/equipment');
+  }
+
 
   /**
-  * Responds to requests to POST /book/search/
-  * This method is used in response to an ajax request from GET /book/search
+  * Responds to requests to POST /equipment/search/
+  * This method is used in response to an ajax request from GET /equipment/search
   * See /public/js/search.js
   */
   public function postSearch(Request $request) {
@@ -146,7 +179,7 @@ class EquipmentController extends Controller
       # Do the search with the provided search term
       $equipment = \P4\Equipment::where('item','LIKE','%'.$request->searchTerm.'%')->get();
 
-      # Return the view with the books
+      # Return the view with the equipments
       return view('equipment.search-ajax')->with(
           ['equipment' => $equipment]
       );
