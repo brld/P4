@@ -313,8 +313,8 @@ fieldset {
     font-size:.85em;
 }
 
-.headerflash {
-  padding-top: 30px;
+.flash_message {
+  top: 39px;
 }
 
 input[type=text], input[type=password] {
@@ -337,7 +337,7 @@ select {
 }
 
 #menu {
-    width: 14%;
+    width: 20%;
     position:absolute;
     top:-3px;
     right: 0;
@@ -379,4 +379,46 @@ select {
 #menu ul li ul li a {
   transition: 0.3s;
   padding: 0px 10px;
+}
+
+#indexh {
+  text-align: center;
+  margin-top: 2%;
+  font-size: 150%;
+  margin-bottom: 1%;
+}
+
+#index {
+    text-align: center;
+    margin-top: 2%;
+    font-size: 150%;
+}
+
+#index a {
+    color: #598956;
+}
+
+.header-no-border-bottom {
+  border-bottom: none !important;
+}
+
+.loggedinas {
+  border-bottom: 1px solid #ccc;
+}
+
+#faemail {
+  color: #a3a3a3;
+  margin-right: 2px;
+}
+
+#fapassword {
+  color: #a3a3a3;
+  margin-right: 5px;
+  margin-left: 3px;
+}
+
+#fauser {
+  color: #a3a3a3;
+  margin-right: 4px;
+  margin-left: 2px;
 }

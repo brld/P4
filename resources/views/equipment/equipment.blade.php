@@ -1,17 +1,17 @@
 @extends('master')
 
 @section('title')
-  All equipment
+  All Equipment
 @stop
 
 @section('content')
 
-  <h1>All the equipment</h1>
+  <h1>All Equipment</h1>
 
   <div class="equipment">
     @foreach($equipment as $indiEquipment)
       <h2 class='item'>{{ $indiEquipment->item }}</h2>
-      <a class='itema'href="/equipment/edit/{{$indiEquipment->id}}">Edit</a>
+      <a class='itema'href="/equipment/edit/{{$indiEquipment->id}}"><i class='fa fa-pencil'></i> Edit</a>
       @if ($indiEquipment->borrowed==FALSE)<a class='booka' id='itemab' href="/equipment/borrow/{{$indiEquipment->id}}">Borrow</a>@endif
       @if ($indiEquipment->borrowed==TRUE)<a class='booka' id='itemab' href="/equipment/confirm-return/{{$indiEquipment->id}}">Return</a>@endif
       <a class='itema' id='itemad' href='/equipment/confirm-delete/{{$indiEquipment->id}}'>Delete</a>

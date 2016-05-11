@@ -8,6 +8,35 @@ class PracticeController extends Controller
     /**
 	* Demonstrate association in a one to many relationship
 	*/
+    public function getEx20() {
+      $book = \P4\Book::findOrFail(1);
+
+      $user = \Auth::user();
+
+      # If user is not logged in, make them log in
+      if(!$user) return redirect()->guest('login');
+
+      # Grab any book, just to use as an example
+
+      # Create an array of data, which will be passed/available in the view
+      $data = array(
+          'user' => $user,
+          'book' => $book,
+      );
+
+      \Mail::send('emails.book-return', $data, function($message) use ($user,$book) {
+
+          $recipient_email = $user->email;
+          $recipient_name  = $user->first_name;
+          $subject  = 'Borrowing confirmation for '.$book->title;
+
+          $message->to($recipient_email, $recipient_name)->subject($subject);
+
+      });
+
+      return 'Basic, plain text email sent.';
+    }
+
     public function getEx19() {
         # Create an author we can associate a book with...
         $author = new \P4\Author;

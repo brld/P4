@@ -104,6 +104,29 @@ class BookController extends Controller
     $book->borrowed = TRUE;
 
     $book->save();
+    # Get the current logged in user
+    $user = \Auth::user();
+
+    # If user is not logged in, make them log in
+    if(!$user) return redirect()->guest('login');
+
+    # Grab any book, just to use as an example
+
+    # Create an array of data, which will be passed/available in the view
+    $data = array(
+        'user' => $user,
+        'book' => $book,
+    );
+
+    \Mail::send('emails.book-return', $data, function($message) use ($user,$book) {
+
+        $recipient_email = $user->email;
+        $recipient_name  = $user->first_name;
+        $subject  = 'Borrowing confirmation for '.$book->title;
+
+        $message->to($recipient_email, $recipient_name)->subject($subject);
+
+    });
 
     \Session::flash('message','You have borrowed that book.');
 

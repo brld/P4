@@ -10,9 +10,15 @@
 
     <meta name='viewport' content='width=device-width, initial-scale=1'>
 
+    <!--<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">-->
+    <script src="https://use.fontawesome.com/207693703c.js"></script>
+
+    <script src='/js/hide-flash.js'></script>
+
     <link href='/css/main.css' rel='stylesheet'>
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600%7CRaleway:400,700' rel='stylesheet' type='text/css'>
+
 
     @yield('head')
 
@@ -23,40 +29,36 @@
         <div class='flash_message'>{{ Session::get('message') }}</div>
     @endif
 
-    @if(Session::get('message') != null)
-    <header class='headerflash'>
-    @else
     <header>
-    @endif
 
       <div class='menu'>
         <ul>
 
           <li>
-            <a class='pushl' href="/">Home</a>
+            <a class='pushl' href="/"><i class='fa fa-home'></i> Home</a>
           </li>
 
           <li>
-            <a href="#">Books ⌄</a>
+            <a href="#"><i class='fa fa-book'></i> Books ⌄</a>
             <ul>
-              <li><a href="/books">View all books</a></li>
-              <li><a href="/books/add">Add a new book</a></li>
-              <li><a href="/newbooks">View newest books</a></li>
+              <li><a href="/books"><i class='fa fa-eye'></i> View all books</a></li>
+              <li><a href="/books/add"><i class='fa fa-plus'></i> Add a new book</a></li>
+              <li><a href="/newbooks"><i class='fa fa-star'></i> View newest books</a></li>
             </ul>
           </li>
           <li>
-            <a class='pushr' href="#">Equipment ⌄</a>
+            <a class='pushr' href="#"><i class='fa fa-flag'></i> Equipment ⌄</a>
             <ul>
-              <li><a href="/equipment">View all equipment</a></li>
-              <li><a href="/equipment/add">Add new equipment</a></li>
-              <li><a href="/newequipment">View newest equipment</a></li>
+              <li><a href="/equipment"><i class='fa fa-eye'></i> View all equipment</a></li>
+              <li><a href="/equipment/add"><i class='fa fa-plus'></i> Add new equipment</a></li>
+              <li><a href="/newequipment"><i class='fa fa-star'></i> View newest equipment</a></li>
             </ul>
           </li>
           <li>
-            <a href="#">Search ⌄</a>
+            <a href="#"><i class='fa fa-search'></i> Search ⌄</a>
             <ul>
-              <li><a href='/books/search'>Search for books</a></li>
-              <li><a href='/equipment/search'>Search for equipment</a></li>
+              <li><a href='/books/search'><i class='fa fa-book'></i> Search for books</a></li>
+              <li><a href='/equipment/search'><i class='fa fa-flag'></i> Search for equipment</a></li>
             </ul>
           </li>
           <div id='menu'>
@@ -66,10 +68,16 @@
             <div id="loginbig">
             @endif
               @if(Auth::check())
-                <li><a class='loginfields' href="/logout">Logout</a></li>
+                <li>
+                  <a class='loginfields' href="#"><i class='fa fa-bars'></i> {{$user->first_name}}</a>
+                  <ul>
+                    <li><a class='loggedinas' href="#"><i class='fa fa-user'></i> Logged in as {{$user->first_name}}</a></li>
+                    <li><a href="/logout"><i class='fa fa-lock'></i> Logout</a></li>
+                  </ul>
+                </li>
               @else
-                <li><a class='loginfields' href="/login">Login</a></li>
-                <li><a class='loginfields' href="/register">Register</a></li>
+                <li><a class='loginfields' href="/login"><i class='fa fa-lock'></i> Login</a></li>
+                <li><a class='loginfields' href="/register"><i class='fa fa-key'></i> Register</a></li>
               @endif
             </div>
           </div>

@@ -19,13 +19,13 @@
         {!! csrf_field() !!}
 
         <div class='form-group'>
-            <label for='email'>Email</label>
-            <input type='text' name='email' id='email' placeholder='Your registered email' value='{{ old('email') }}'>
+            <label for='email'><i class='fa fa-envelope' id='faemail'></i></label>
+            <input type='text' name='email' id='email' placeholder='Your email' value='{{ old('email') }}'>
         </div>
 
         <div class='form-group'>
-            <label for='password'>Password</label>
-            <input type='password' name='password' id='password' value='{{ old('password') }}'>
+            <label for='password'><i class='fa fa-lock' id='fapassword'></i></label>
+            <input type='password' name='password' id='password' placeholder='Your password' value='{{ old('password') }}'>
         </div>
 
         <div class='form-group'>
