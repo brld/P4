@@ -9,10 +9,6 @@ a, a:visited {
   color: #6a9b42;
 }
 
-.fafa-github, .fafa-link {
-  color: #fff !important;
-}
-
 span {
   color: #dddddd;
 }
@@ -293,21 +289,6 @@ fieldset {
   margin-top: 1% !important;
 }
 
-#login {
-  font-size: 90%;
-  text-align: right;
-  margin-right: 3%;
-  margin-top: 1%;
-  margin-bottom: -.5% !important;
-}
-#loginbig {
-  font-size: 100%;
-  text-align: right;
-  margin-right: 3%;
-  margin-top: 1%;
-  margin-bottom: -.5% !important;
-}
-
 .tags {
     margin-top:3px;
     width: 25%;
@@ -342,51 +323,6 @@ select {
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
-}
-
-#menu {
-    width: 20%;
-    position:absolute;
-    top:-3px;
-    right: 0;
-}
-
-#menu ul {
-  padding: 0px;
-  margin: 0 auto;
-  list-style: none;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-}
-
-#menu ul li a {
-  color: #fff;
-  background: #699966;
-  padding: 10px;
-  padding-bottom: 9px;
-  display: block;
-  text-decoration: none;
-  font-size: 15px;
-}
-
-#menu ul li a:hover {
-  background: #80BA7C;
-  color: #fff;
-  transition: all 0.3s ease 0s;
-}
-
-#menu ul li ul {
-  position: absolute;
-  height: 0px;
-  overflow: hidden;
-}
-
-
-
-#menu ul li ul li a {
-  transition: 0.3s;
-  padding: 0px 10px;
 }
 
 #indexh {

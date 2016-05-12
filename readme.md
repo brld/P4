@@ -35,6 +35,12 @@ All emails pipe to the live server's 'storage/logs/laravel.log', as the two seed
 
 CSS Reset: [http://www.stackoverflow.com] (http://www.stackoverflow.com)
 
-Bootstrap: [http://getbootstrap.com] [http://getbootstrap.com/]
+Bootstrap: [http://getbootstrap.com] [http://getbootstrap.com]
 
 Fonts: [https://www.google.com/fonts] (https://www.google.com/fonts)
+
+Icons: [https://fortawesome.com] (https://fortawesome.com)
+
+Login / Register design: [http://designscrazed.org] (http://designscrazed.org)
+
+Framework: [https://laravel.com] (https://laravel.com)

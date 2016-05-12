@@ -68,11 +68,12 @@
               <ul>
                   <li><a href="/logout"><i class='fa fa-lock'></i> Logout {{$user->first_name}}</a></li>
               </ul>
+          </li>
             @else
               <li><a class='loginfields' href="/login"><i class='fa fa-lock'></i> Login</a></li>
               <li><a class='loginfields' href="/register"><i class='fa fa-key'></i> Register</a></li>
             @endif
-          </li>
+
 
 
         </ul>

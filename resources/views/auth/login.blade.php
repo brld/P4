@@ -37,7 +37,7 @@
 
         <div class='form-group'>
             <input type='checkbox' name='remember' class='remember'>
-            <label for='remember' class='checkboxLabel'>Remember me</label>
+            <label>Remember me</label>
         </div>
 
         <button type='submit' class='btn btn-primary'>Login</button>

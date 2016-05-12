@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>
-      S.M. Login
+      S.M. Register
     </title>
     <meta charset='utf-8'>
     <script src="https://use.fontawesome.com/207693703c.js"></script>
