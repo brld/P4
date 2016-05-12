@@ -63,11 +63,7 @@
           </li>
           <li>
             <div id='menu'>
-              @if(Auth::check())
               <div id="login">
-              @else
-              <div id="loginbig">
-              @endif
                 @if(Auth::check())
                   <li>
                     <a class='loginfields' href="#"><i class='fa fa-bars'></i> {{$user->first_name}}</a>
