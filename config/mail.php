@@ -55,7 +55,7 @@ return [
     |
     */
 
-    'from' => ['address' => 'mail@p4.plezza.com', 'name' => 'ScoutManager'],
+    'from' => ['address' => null, 'name' => null],
 
     /*
     |--------------------------------------------------------------------------
