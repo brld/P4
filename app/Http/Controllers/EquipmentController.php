@@ -58,6 +58,11 @@ class EquipmentController extends Controller
   public function getEdit($id = 1) {
     $equipment = \P4\Equipment::find($id);
 
+    if ($equipment->borrowed==TRUE) {
+      \Session::flash('message','You cannot edit borrowed equipment');
+      return redirect('/equipment');
+    }
+
     $owners_for_dropdown = \P4\Owner::ownersForDropdown();
 
     $equipment_tags_for_checkboxes = \P4\Tag::getEquipmentTagsForCheckboxes();
