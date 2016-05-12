@@ -58,8 +58,7 @@
         <button type='submit' class='btn-primary'>Register</button>
         <p class='message'>Already have an account? <a href='/login'>Login here...</a></p>
 
-      </div>
-
-    </form>
+      </form>
+    </div>
   </body>
 </html>
