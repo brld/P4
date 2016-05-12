@@ -55,6 +55,11 @@ class BookController extends Controller
   public function getEdit($id = 1) {
     $book = \P4\Book::with('tags')->find($id);
 
+    if ($book->borrowed==TRUE) {
+      \Session::flash('message','You cannot edit borrowed books');
+      return redirect('/books');
+    }
+
     $owners_for_dropdown = \P4\Owner::ownersForDropdown();
 
     $tags_for_checkboxes = \P4\Tag::getTagsForCheckboxes();
@@ -71,17 +76,14 @@ class BookController extends Controller
       ->with('tags_for_this_book',$tags_for_this_book);
   }
   public function postEdit(Request $request) {
-    $this->validate($request,[
-      'title' => 'required|min:3|max:30',
-    ]);
 
     $messages = [
       'not_in' => 'You have to choose an owner.',
     ];
 
     $this->validate($request,[
-      'item' => 'required|min:3|max:30',
-      'owner_id' => 'not_in:0'
+      'title' => 'required|min:3|max:30',
+      'owner_id' => 'not_in:0',
     ],$messages);
 
     $book = \P4\Book::find($request->id);

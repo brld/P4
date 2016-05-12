@@ -34,7 +34,7 @@
               <option value='{{ $owner_id }}' {{$selected}}>{{ $owner_name }}</option>
             @endforeach
           </select>
-          <div class='error'>{{ $errors->first('owner') }}</div>
+          <div class='error'>{{ $errors->first('owner_id') }}</div>
         </div>
 
         <div class='form-group'>
@@ -51,7 +51,6 @@
               {{$tag_name}}
             </label>
             @endforeach
-            <div class='error'>{{ $errors->first('owner') }}</div>
           </fieldset>
         </div>
 
@@ -61,13 +60,6 @@
 
         <button type="submit" class="btn-primary">Save changes</button>
 
-        {{--
-        <ul class=''>
-            @foreach($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-        --}}
 
         <div class='error'>
             @if(count($errors) > 0)

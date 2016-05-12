@@ -75,10 +75,6 @@ class EquipmentController extends Controller
 
   }
   public function postEdit(Request $request) {
-    $this->validate($request,[
-      'item' => 'required|min:3|max:30',
-    ]);
-
     $messages = [
       'not_in' => 'You have to choose an owner.',
     ];
