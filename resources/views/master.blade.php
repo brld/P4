@@ -10,12 +10,13 @@
 
     <meta name='viewport' content='width=device-width, initial-scale=1'>
 
-    <!--<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">-->
     <script src="https://use.fontawesome.com/207693703c.js"></script>
 
     <script src='/js/hide-flash.js'></script>
 
     <link href='/css/main.css' rel='stylesheet'>
+
+    <link rel="icon" type="image/png" href="images/favicon.ico">
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600%7CRaleway:400,700%7cRoboto:300' rel='stylesheet' type='text/css'>
 
@@ -63,10 +64,9 @@
           </li>
           <li>
             @if(Auth::check())
-              <a class='loginfields' href="#"><i class='fa fa-bars'></i> {{$user->first_name}}</a>
+              <a class='loginfields' href="#"><i class='fa fa-user'></i> Logged in as {{$user->first_name}}</a>
               <ul>
-                  <li><a class='loggedinas' href="#"><i class='fa fa-user'></i> Logged in as {{$user->first_name}}</a></li>
-                  <li><a href="/logout"><i class='fa fa-lock'></i> Logout</a></li>
+                  <li><a href="/logout"><i class='fa fa-lock'></i> Logout {{$user->first_name}}</a></li>
               </ul>
             @else
               <li><a class='loginfields' href="/login"><i class='fa fa-lock'></i> Login</a></li>
