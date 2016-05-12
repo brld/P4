@@ -100,6 +100,7 @@ class EquipmentController extends Controller
     $equipment = \P4\Equipment::find($id);
 
     return view('equipment.borrow')->with('equipment',$equipment);
+
   }
   public function postBorrow(Request $request) {
     $equipment = \P4\Equipment::find($request->id);
@@ -108,6 +109,33 @@ class EquipmentController extends Controller
     $equipment->borrowed = TRUE;
 
     $equipment->save();
+
+    $equipment->borrowed_for = $request->time;
+
+    $equipment->save();
+    # Get the current logged in user
+    $user = \Auth::user();
+
+    # If user is not logged in, make them log in
+    if(!$user) return redirect()->guest('login');
+
+    # Grab any book, just to use as an example
+
+    # Create an array of data, which will be passed/available in the view
+    $data = array(
+        'user' => $user,
+        'book' => $equipment,
+    );
+
+    \Mail::send('emails.book-return', $data, function($message) use ($user,$equipment) {
+
+        $recipient_email = $user->email;
+        $recipient_name  = $user->first_name;
+        $subject  = 'Borrowing confirmation for '.$equipment->item;
+
+        $message->to($recipient_email, $recipient_name)->subject($subject);
+
+    });
 
     \Session::flash('message','You have borrowed that item.');
 

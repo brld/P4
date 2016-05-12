@@ -102,6 +102,7 @@ class BookController extends Controller
 
 
     $book->borrowed = TRUE;
+    $book->borrowed_for = $request->time;
 
     $book->save();
     # Get the current logged in user

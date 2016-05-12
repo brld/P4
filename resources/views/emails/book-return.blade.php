@@ -8,7 +8,7 @@
     <a href='{{ Config::get('app.url').'/books/edit/'.$book->id}}'>View now...</a>
 </div>
 
-<p>Enjoy the book! Remember to return it to him!</p>
+<p>Enjoy the book! Please remember to return it to him within {{ $book->borrowed_for }}! Thanks!</p>
 
 <p>
 From,<br>

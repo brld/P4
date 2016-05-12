@@ -17,6 +17,7 @@ class BooksTableSeeder extends Seeder
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
             'title' => 'Pinnacles Information',
             'borrowed' => '0',
+            'borrowed_for' => '',
             'owner_id' => $owner_id,
         ]);
 
@@ -26,6 +27,7 @@ class BooksTableSeeder extends Seeder
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
             'title' => 'Santa Teresa Information',
             'borrowed' => '0',
+            'borrowed_for' => '',
             'owner_id' => $owner_id,
         ]);
 
@@ -35,6 +37,7 @@ class BooksTableSeeder extends Seeder
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
             'title' => 'California State Parks Map',
             'borrowed' => '0',
+            'borrowed_for' => '',
             'owner_id' => $owner_id,
         ]);
 
@@ -44,6 +47,7 @@ class BooksTableSeeder extends Seeder
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
             'title' => 'Yosemite Information',
             'borrowed' => '0',
+            'borrowed_for' => '',
             'owner_id' => $owner_id,
         ]);
 
@@ -53,6 +57,7 @@ class BooksTableSeeder extends Seeder
             'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
             'title' => 'South Skyline Region',
             'borrowed' => '0',
+            'borrowed_for' => '',
             'owner_id' => $owner_id,
         ]);
     }
