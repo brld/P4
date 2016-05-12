@@ -1,27 +1,43 @@
-# Laravel PHP Framework
+# Scout Manager
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+## Live URL:
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+[p4.plezza.com] (http://p4.plezza.com)
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+## Description
 
-## Official Documentation
+This project allows users to generate various things that would be helpful to a developer, such as filler lorem ipsum text, randomly generated users, or easy to remember xkcd passwords. This project makes use of the MVC pattern (Model, view, controller) and uses Laravel 5's controllers, routes, and views.
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+## Demo
 
-## Contributing
+[https://youtu.be/oGA-6J4swMk] (https://youtu.be/oGA-6J4swMk)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+## Details for the teaching team
 
-## Security Vulnerabilities
+Navigation bar is global across all pages for easy navigation after generating anything.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+All HTML and CSS validates with no warnings.
 
-## License
+The logo was made by me.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+The phone numbers for random users are not toll free as toll free numbers were not functional.
+
+NOTE: I had to URL encode the | character for importing google fonts with %7C in order to prevent an HTML error.
+
+## Features
+
+* Lorem Ipsum filler text generator
+* Random User Generator
+* xkcd Password Generator
+* Client side validation
+* Server side validation
+
+## Outside resources used
+
+CSS Reset: [http://www.stackoverflow.com] (http://www.stackoverflow.com)
+
+fzazinotto/faker: [https://packagist.org/packages/fzaninotto/faker] (https://packagist.org/packages/fzaninotto/faker)
+
+badcow/lorem-ipsum: [https://packagist.org/packages/badcow/lorem-ipsum] (https://packagist.org/packages/badcow/lorem-ipsum)
+
+Fonts: [https://www.google.com/fonts] (https://www.google.com/fonts)
