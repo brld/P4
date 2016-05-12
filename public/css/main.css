@@ -5,6 +5,10 @@ html,body,head,a,h1,h2,h3,h4,h5,h6,pre,sup,sub /* CSS Reset from StackOverflow *
   font-family: 'Open Sans', sans-serif;
 }
 
+.fafa-github, .fafa-link {
+  color: white !important;
+}
+
 a, a:visited {
   color: #6a9b42;
 }
