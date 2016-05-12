@@ -61,26 +61,28 @@
               <li><a href='/equipment/search'><i class='fa fa-flag'></i> Search for equipment</a></li>
             </ul>
           </li>
-          <div id='menu'>
-            @if(Auth::check())
-            <div id="login">
-            @else
-            <div id="loginbig">
-            @endif
+          <li>
+            <div id='menu'>
               @if(Auth::check())
-                <li>
-                  <a class='loginfields' href="#"><i class='fa fa-bars'></i> {{$user->first_name}}</a>
-                  <ul>
-                    <li><a class='loggedinas' href="#"><i class='fa fa-user'></i> Logged in as {{$user->first_name}}</a></li>
-                    <li><a href="/logout"><i class='fa fa-lock'></i> Logout</a></li>
-                  </ul>
-                </li>
+              <div id="login">
               @else
-                <li><a class='loginfields' href="/login"><i class='fa fa-lock'></i> Login</a></li>
-                <li><a class='loginfields' href="/register"><i class='fa fa-key'></i> Register</a></li>
+              <div id="loginbig">
               @endif
+                @if(Auth::check())
+                  <li>
+                    <a class='loginfields' href="#"><i class='fa fa-bars'></i> {{$user->first_name}}</a>
+                    <ul>
+                      <li><a class='loggedinas' href="#"><i class='fa fa-user'></i> Logged in as {{$user->first_name}}</a></li>
+                      <li><a href="/logout"><i class='fa fa-lock'></i> Logout</a></li>
+                    </ul>
+                  </li>
+                @else
+                  <li><a class='loginfields' href="/login"><i class='fa fa-lock'></i> Login</a></li>
+                  <li><a class='loginfields' href="/register"><i class='fa fa-key'></i> Register</a></li>
+                @endif
+              </div>
             </div>
-          </div>
+          </li>
 
           <div class='clear'>
 
