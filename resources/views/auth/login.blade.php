@@ -14,14 +14,6 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600%7CRaleway:400,700' rel='stylesheet' type='text/css'>
   </head>
   <body>
-    @if(count($errors) > 0)
-        <ul class='errors'>
-            @foreach ($errors->all() as $error)
-                <li><span class='fa fa-exclamation-circle'></span> {{ $error }}</li>
-            @endforeach
-        </ul>
-    @endif
-
     <div class="login-page">
 
 
@@ -34,11 +26,13 @@
         <div class='form-group'>
             <label for='email'><i class='fa fa-envelope' id='faemaillogin'></i></label>
             <input type='text' name='email' id='email' placeholder='Your email' value='{{ old('email') }}'>
+            <div class='error'>{{ $errors->first('email') }}</div>
         </div>
 
         <div class='form-group'>
             <label for='password'><i class='fa fa-lock' id='fapasswordlogin'></i></label>
             <input type='password' name='password' id='password' placeholder='Your password' value='{{ old('password') }}'>
+            <div class='error'>{{ $errors->first('password') }}</div>
         </div>
 
         <div class='form-group'>

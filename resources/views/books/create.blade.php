@@ -6,7 +6,7 @@
 
 @section('content')
 
-    <h1>Add a new book</h1>
+    <h1>Add a New Book</h1>
 
     <form method='POST' action='/books/add'>
 

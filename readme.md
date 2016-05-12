@@ -16,9 +16,11 @@ The application is designed for easy access to items through the database, and s
 
 ## Details for the teaching team
 
-Note: Although this project is largely database based, in order for it to fully make sense, there must be an assumption that previous owners and new owners will collaborate somewhat outside of the database (i.e. after book is borrowed and confirmation email is sent, the book will be delivered manually). This is simply because this deals with real books and items, and not e-books.
+If this were a real world project, then after someone electronically borrowed a book or item, it would be delivered by the previous owner. Just putting that out there cause I can't simulate real world interactions in a database.
 
-NOTE: I had to URL encode the | character for importing google fonts with %7C in order to prevent an HTML error.
+I had to URL encode the | character for importing google fonts with %7C in order to prevent an HTML error.
+
+All emails pipe to the live server's 'storage/logs/laravel.log', as the two seeded user emails 'jill@harvard.edu' and 'jamal@harvard.edu' are not real emails.
 
 ## Features
 

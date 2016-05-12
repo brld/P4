@@ -40,6 +40,7 @@ h1 {
   padding-bottom: 2%;
   border-color: #ccc;
   border-bottom: 1px solid #ccc;
+  text-align: center;
 }
 
 p {
@@ -414,4 +415,18 @@ select {
 
 .loggedinas {
   border-bottom: 1px solid #ccc;
+}
+
+.errors {
+    color:red;
+    margin:0;
+    margin-top:5px;
+    margin-bottom: 100px;
+    padding:0;
+    list-style-type:none;
+}
+
+.centerp {
+  text-align: center;
+  font-size: 150%;
 }

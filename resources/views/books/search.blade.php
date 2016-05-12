@@ -10,7 +10,7 @@
 
 @section('content')
 
-    <h1>Search for a book</h1>
+    <h1>Search For a Book</h1>
 
     <form method='POST'>
 

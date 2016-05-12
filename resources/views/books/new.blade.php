@@ -6,7 +6,7 @@
 
 @section('content')
 
-  <h1>Newest books</h1>
+  <h1>Newest Books</h1>
 
   <div class="book">
     @foreach($books as $book)
