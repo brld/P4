@@ -11,6 +11,6 @@
 <p>Enjoy the book! Please remember to return it to him within {{ $book->borrowed_for }}! Thanks!</p>
 
 <p>
-From,<br>
+From,<br><br>
 The Scout Manager Team
 </p>

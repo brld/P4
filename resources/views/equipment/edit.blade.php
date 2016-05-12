@@ -22,7 +22,7 @@
                 name='item'
                 value='{{ $equipment->item }}'
             >
-           <div class='error'>{{ $errors->first('title') }}</div>
+           <div class='error'>{{ $errors->first('item') }}</div>
         </div>
 
         <div class='form-group'>

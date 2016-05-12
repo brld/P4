@@ -1,11 +1,19 @@
-@extends('master')
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      S.M. Login
+    </title>
+    <meta charset='utf-8'>
+    <script src="https://use.fontawesome.com/207693703c.js"></script>
 
-@section('content')
+    <script src='/js/hide-flash.js'></script>
 
-    <p>Don't have an account? <a href='/register'>Register here...</a></p>
+    <link href='/css/login.css' rel='stylesheet'>
 
-    <h1>Login</h1>
-
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600%7CRaleway:400,700' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
     @if(count($errors) > 0)
         <ul class='errors'>
             @foreach ($errors->all() as $error)
@@ -14,9 +22,14 @@
         </ul>
     @endif
 
-    <form method='POST' action='/login'>
+    <div class="login-page">
+
+
+    <form method='POST' action='/login' class='login-form'>
 
         {!! csrf_field() !!}
+
+        <p class='plogin'>Login</p>
 
         <div class='form-group'>
             <label for='email'><i class='fa fa-envelope' id='faemail'></i></label>
@@ -34,6 +47,10 @@
         </div>
 
         <button type='submit' class='btn btn-primary'>Login</button>
+        <p class='message'>Don't have an account? <a href='/register'>Register here...</a></p>
 
     </form>
-@stop
+
+    </div>
+  </body>
+</html>

@@ -1,10 +1,19 @@
-@extends('master')
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      S.M. Login
+    </title>
+    <meta charset='utf-8'>
+    <script src="https://use.fontawesome.com/207693703c.js"></script>
 
-@section('content')
+    <script src='/js/hide-flash.js'></script>
 
-    <p>Already have an account? <a href='/login'>Login here...</a></p>
+    <link href='/css/login.css' rel='stylesheet'>
 
-    <h1>Register</h1>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600%7CRaleway:400,700' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
 
     @if(count($errors) > 0)
         <ul class='errors'>
@@ -14,8 +23,12 @@
         </ul>
     @endif
 
-    <form method='POST' action='/register'>
+    <div class="register-page">
+
+    <form method='POST' action='/register' class='register-form'>
         {!! csrf_field() !!}
+
+        <p class='plogin'>Register</p>
 
         <div class='form-group'>
             <label for='first_name'><i class='fa fa-user' id='fauser'></i></label>
@@ -43,7 +56,10 @@
         </div>
 
         <button type='submit' class='btn-primary'>Register</button>
+        <p class='message'>Already have an account? <a href='/login'>Login here...</a></p>
+
+      </div>
 
     </form>
-
-@stop
+  </body>
+</html>

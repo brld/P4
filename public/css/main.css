@@ -5,8 +5,8 @@ html,body,head,a,h1,h2,h3,h4,h5,h6,pre,sup,sub /* CSS Reset from StackOverflow *
   font-family: 'Open Sans', sans-serif;
 }
 
-a:visited {
-  color: blue;
+a, a:visited {
+  color: #6a9b42;
 }
 
 .fafa-github, .fafa-link {
@@ -211,7 +211,7 @@ footer {
 	position:relative;
 	top:1px;
 }
-*:focus {
+button:focus {
   outline:0;
 }
 .book {
@@ -383,7 +383,7 @@ select {
 
 #indexh {
   text-align: center;
-  margin-top: 2%;
+  margin-top: 4%;
   font-size: 150%;
   margin-bottom: 1%;
 }
@@ -399,7 +399,10 @@ select {
 }
 
 .header-no-border-bottom {
+  margin-top: 4%;
   border-bottom: none !important;
+  text-align: center;
+  font-size: 250%;
 }
 
 .loggedinas {

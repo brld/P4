@@ -75,6 +75,19 @@ class EquipmentController extends Controller
 
   }
   public function postEdit(Request $request) {
+    $this->validate($request,[
+      'item' => 'required|min:3|max:30',
+    ]);
+
+    $messages = [
+      'not_in' => 'You have to choose an owner.',
+    ];
+
+    $this->validate($request,[
+      'item' => 'required|min:3|max:30',
+      'owner_id' => 'not_in:0'
+    ],$messages);
+
     $equipment = \P4\Equipment::find($request->id);
 
     $equipment->item = $request->item;

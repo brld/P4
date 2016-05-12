@@ -11,6 +11,6 @@
 <p>Enjoy the item! Please remember to return it to him within {{ $equipment->borrowed_for }}! Thanks!</p>
 
 <p>
-From,<br>
+From,<br><br>
 The Scout Manager Team
 </p>

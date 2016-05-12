@@ -17,7 +17,7 @@
 
     <link href='/css/main.css' rel='stylesheet'>
 
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600%7CRaleway:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600%7CRaleway:400,700%7cRoboto:300' rel='stylesheet' type='text/css'>
 
 
     @yield('head')
