@@ -6,7 +6,9 @@
 
 ## Description
 
-This project allows users to generate various things that would be helpful to a developer, such as filler lorem ipsum text, randomly generated users, or easy to remember xkcd passwords. This project makes use of the MVC pattern (Model, view, controller) and uses Laravel 5's controllers, routes, and views.
+Scout Manager is your Boy Scout troop's online database for all books and equipment. This means that you can easily borrow anything for however long you need it.
+
+The application is designed for easy access to items through the database, and shows the owner of every item so that you can easily retrieve it.
 
 ## Demo
 
@@ -14,30 +16,23 @@ This project allows users to generate various things that would be helpful to a 
 
 ## Details for the teaching team
 
-Navigation bar is global across all pages for easy navigation after generating anything.
-
-All HTML and CSS validates with no warnings.
-
-The logo was made by me.
-
-The phone numbers for random users are not toll free as toll free numbers were not functional.
+Note: Although this project is largely database based, in order for it to fully make sense, there must be an assumption that previous owners and new owners will collaborate somewhat outside of the database (i.e. after book is borrowed and confirmation email is sent, the book will be delivered manually). This is simply because this deals with real books and items, and not e-books.
 
 NOTE: I had to URL encode the | character for importing google fonts with %7C in order to prevent an HTML error.
 
 ## Features
 
-* Lorem Ipsum filler text generator
-* Random User Generator
-* xkcd Password Generator
-* Client side validation
-* Server side validation
+* Ability to edit books and equipment easily
+* Tags that categorize books and equipment
+* Newest books and equipment section
+* Search the entire database with AJAX
+* Confirmation emails sent when borrowing anything
+* Login and registering
 
 ## Outside resources used
 
 CSS Reset: [http://www.stackoverflow.com] (http://www.stackoverflow.com)
 
-fzazinotto/faker: [https://packagist.org/packages/fzaninotto/faker] (https://packagist.org/packages/fzaninotto/faker)
-
-badcow/lorem-ipsum: [https://packagist.org/packages/badcow/lorem-ipsum] (https://packagist.org/packages/badcow/lorem-ipsum)
+Bootstrap: [http://getbootstrap.com] [http://getbootstrap.com/]
 
 Fonts: [https://www.google.com/fonts] (https://www.google.com/fonts)

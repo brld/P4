@@ -259,19 +259,26 @@ button:focus {
   float: left;
 }
 
-#bookab {
+.bookab {
+  margin-top: .6%;
+  width: 7%;
+  float: left;
   width: 10%;
 }
 
-#bookad {
+a.bookadbooks, a.bookadequipment {
+  margin-top: .6%;
+  width: 7%;
+  float: left;
   color: #d60000;
   width: 7%;
 }
 
-#borrowed {
+.borrowed {
   color: #aaa;
   font-size: 100%;
   text-transform: uppercase;
+  clear: both;
 }
 
 .truncate {
@@ -407,21 +414,4 @@ select {
 
 .loggedinas {
   border-bottom: 1px solid #ccc;
-}
-
-#faemaillogin, #faemailregister {
-  color: #a3a3a3;
-  margin-right: 2px;
-}
-
-#fapasswordlogin, #fapasswordregister1, #fapasswordregister2{
-  color: #a3a3a3;
-  margin-right: 5px;
-  margin-left: 3px;
-}
-
-#fauserlogin, #fauserregister1, #fauserregister2 {
-  color: #a3a3a3;
-  margin-right: 4px;
-  margin-left: 2px;
 }

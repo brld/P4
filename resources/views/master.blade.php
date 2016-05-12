@@ -63,28 +63,22 @@
           </li>
           <li>
             @if(Auth::check())
-            <ul>
-              <li>
-                <a class='loginfields' href="#"><i class='fa fa-bars'></i> {{$user->first_name}}</a>
-                <ul>
+              <a class='loginfields' href="#"><i class='fa fa-bars'></i> {{$user->first_name}}</a>
+              <ul>
                   <li><a class='loggedinas' href="#"><i class='fa fa-user'></i> Logged in as {{$user->first_name}}</a></li>
                   <li><a href="/logout"><i class='fa fa-lock'></i> Logout</a></li>
-                </ul>
-              </li>
-            </ul>
+              </ul>
             @else
-            <ul>
               <li><a class='loginfields' href="/login"><i class='fa fa-lock'></i> Login</a></li>
               <li><a class='loginfields' href="/register"><i class='fa fa-key'></i> Register</a></li>
-            </ul>
             @endif
           </li>
-          <li>
-            <div class='clear'>
 
-            </div>
-          </li>
+
         </ul>
+        <div class='clear'>
+
+        </div>
       </div>
     </header>
 
