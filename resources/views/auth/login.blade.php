@@ -32,12 +32,12 @@
         <p class='plogin'>Login</p>
 
         <div class='form-group'>
-            <label for='email'><i class='fa fa-envelope' class='faemail'></i></label>
+            <label for='email'><i class='fa fa-envelope' id='faemaillogin'></i></label>
             <input type='text' name='email' id='email' placeholder='Your email' value='{{ old('email') }}'>
         </div>
 
         <div class='form-group'>
-            <label for='password'><i class='fa fa-lock' class='fapassword'></i></label>
+            <label for='password'><i class='fa fa-lock' id='fapasswordlogin'></i></label>
             <input type='password' name='password' id='password' placeholder='Your password' value='{{ old('password') }}'>
         </div>
 

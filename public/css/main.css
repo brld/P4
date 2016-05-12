@@ -409,18 +409,18 @@ select {
   border-bottom: 1px solid #ccc;
 }
 
-.faemail {
+#faemaillogin, #faemailregister {
   color: #a3a3a3;
   margin-right: 2px;
 }
 
-.fapassword {
+#fapasswordlogin, #fapasswordregister1, #fapasswordregister2{
   color: #a3a3a3;
   margin-right: 5px;
   margin-left: 3px;
 }
 
-.fauser {
+#fauserlogin, #fauserregister1, #fauserregister2 {
   color: #a3a3a3;
   margin-right: 4px;
   margin-left: 2px;
