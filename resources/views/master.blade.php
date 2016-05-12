@@ -62,22 +62,22 @@
             </ul>
           </li>
           <li>
-            <div id='menu'>
-              <div id="login">
-                @if(Auth::check())
-                  <li>
-                    <a class='loginfields' href="#"><i class='fa fa-bars'></i> {{$user->first_name}}</a>
-                    <ul>
-                      <li><a class='loggedinas' href="#"><i class='fa fa-user'></i> Logged in as {{$user->first_name}}</a></li>
-                      <li><a href="/logout"><i class='fa fa-lock'></i> Logout</a></li>
-                    </ul>
-                  </li>
-                @else
-                  <li><a class='loginfields' href="/login"><i class='fa fa-lock'></i> Login</a></li>
-                  <li><a class='loginfields' href="/register"><i class='fa fa-key'></i> Register</a></li>
-                @endif
-              </div>
-            </div>
+            @if(Auth::check())
+            <ul>
+              <li>
+                <a class='loginfields' href="#"><i class='fa fa-bars'></i> {{$user->first_name}}</a>
+                <ul>
+                  <li><a class='loggedinas' href="#"><i class='fa fa-user'></i> Logged in as {{$user->first_name}}</a></li>
+                  <li><a href="/logout"><i class='fa fa-lock'></i> Logout</a></li>
+                </ul>
+              </li>
+            </ul>
+            @else
+            <ul>
+              <li><a class='loginfields' href="/login"><i class='fa fa-lock'></i> Login</a></li>
+              <li><a class='loginfields' href="/register"><i class='fa fa-key'></i> Register</a></li>
+            </ul>
+            @endif
           </li>
 
           <div class='clear'>
