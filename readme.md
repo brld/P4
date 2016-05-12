@@ -12,7 +12,7 @@ The application is designed for easy access to items through the database, and s
 
 ## Demo
 
-[https://youtu.be/oGA-6J4swMk] (https://youtu.be/oGA-6J4swMk)
+[https://youtu.be/RkMrj04hTYU] (https://youtu.be/RkMrj04hTYU)
 
 ## Details for the teaching team
 
