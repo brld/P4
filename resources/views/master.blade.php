@@ -79,10 +79,11 @@
             </ul>
             @endif
           </li>
+          <li>
+            <div class='clear'>
 
-          <div class='clear'>
-
-          </div>
+            </div>
+          </li>
         </ul>
       </div>
     </header>
